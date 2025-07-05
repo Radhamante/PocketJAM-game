@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://x6vuwbht4vsg"]
+
+[ext_resource type="PackedScene" uid="uid://clluktvflkuw8" path="res://scenes/environement/bobby_car.tscn" id="1_aclul"]
+[ext_resource type="PackedScene" uid="uid://chfs5031vwomr" path="res://scenes/environement/building_exemple.tscn" id="1_pihvh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pihvh"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pihvh"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aclul"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8yb3q"]
+data = PackedVector3Array(-1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1)
+
+[node name="MeshLibrarySource" type="Node3D"]
+
+[node name="CUBE" type="Node3D" parent="."]
+
+[node name="CUBE" type="MeshInstance3D" parent="CUBE"]
+mesh = SubResource("BoxMesh_pihvh")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/MeshLibrarySource")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CUBE/CUBE"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CUBE/CUBE/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_pihvh")
+
+[node name="CUBEX2" type="Node3D" parent="."]
+
+[node name="CUBE2X" type="MeshInstance3D" parent="CUBEX2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_aclul")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CUBEX2/CUBE2X"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CUBEX2/CUBE2X/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8yb3q")
+
+[node name="BobbYCar" parent="." instance=ExtResource("1_aclul")]
+
+[node name="Building_Exemple" parent="." instance=ExtResource("1_pihvh")]

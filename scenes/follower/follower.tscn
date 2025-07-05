@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cju1yf86s21nc"]
+[gd_scene load_steps=13 format=3 uid="uid://cju1yf86s21nc"]
 
 [ext_resource type="Script" uid="uid://dr0ue0p8gxrka" path="res://scenes/follower/follower.gd" id="1_5f0wo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0527f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0527f"]
-albedo_color = Color(1, 0.25098, 1, 1)
+albedo_color = Color(0.994253, 0.99355, 0.861047, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5f0wo"]
 material = SubResource("StandardMaterial3D_0527f")
@@ -23,6 +23,18 @@ material = SubResource("StandardMaterial3D_5f0wo")
 [sub_resource type="Curve" id="Curve_5f0wo"]
 _data = [Vector2(0, 1), 0.0, -0.0395504, 0, 0, Vector2(0.278409, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.38583, 0.0, 1, 0]
 point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqbhw"]
+albedo_color = Color(1, 0.670588, 0.396078, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a84gk"]
+material = SubResource("StandardMaterial3D_hqbhw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a84gk"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ovswd"]
+material = SubResource("StandardMaterial3D_a84gk")
 
 [node name="Follower" type="CharacterBody3D"]
 script = ExtResource("1_5f0wo")
@@ -59,4 +71,16 @@ scale_amount_min = 0.7
 scale_amount_max = 1.5
 scale_amount_curve = SubResource("Curve_5f0wo")
 
-[connection signal="body_entered" from="grab-area" to="." method="_on_grabarea_body_entered"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.755707, 0, 0, 0, -2.69351e-08, 0.253931, 0, -0.616203, -1.10997e-08, 0, 1.40665, -0.285651)
+mesh = SubResource("CapsuleMesh_a84gk")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.280171, 0, 0, 0, 0.280171, 0, 0, 0, 0.280171, 0.217477, 1.78952, -0.250167)
+mesh = SubResource("SphereMesh_ovswd")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.280171, 0, 0, 0, 0.280171, 0, 0, 0, 0.280171, -0.227009, 1.78952, -0.239228)
+mesh = SubResource("SphereMesh_ovswd")
+
+[connection signal="body_entered" from="grab-area" to="." method="_on_grab_area_body_entered"]
