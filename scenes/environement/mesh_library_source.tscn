@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://x6vuwbht4vsg"]
+[gd_scene load_steps=8 format=3 uid="uid://x6vuwbht4vsg"]
 
-[ext_resource type="PackedScene" uid="uid://clluktvflkuw8" path="res://scenes/environement/bobby_car.tscn" id="1_aclul"]
+[ext_resource type="PackedScene" uid="uid://cq5j47ktdsyp" path="res://scenes/environement/bobby_car.tscn" id="1_aclul"]
 [ext_resource type="PackedScene" uid="uid://chfs5031vwomr" path="res://scenes/environement/building_exemple.tscn" id="1_pihvh"]
+[ext_resource type="PackedScene" uid="uid://t54eiww87v51" path="res://scenes/environement/sm_buisson.tscn" id="3_v468x"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pihvh"]
 
@@ -17,6 +18,7 @@ data = PackedVector3Array(-1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -
 [node name="MeshLibrarySource" type="Node3D"]
 
 [node name="CUBE" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="CUBE" type="MeshInstance3D" parent="CUBE"]
 mesh = SubResource("BoxMesh_pihvh")
@@ -41,3 +43,5 @@ shape = SubResource("ConcavePolygonShape3D_8yb3q")
 [node name="BobbYCar" parent="." instance=ExtResource("1_aclul")]
 
 [node name="Building_Exemple" parent="." instance=ExtResource("1_pihvh")]
+
+[node name="SM_Buisson" parent="." instance=ExtResource("3_v468x")]
