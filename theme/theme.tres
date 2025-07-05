@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dprsiw7ycliib"]
+
+[ext_resource type="StyleBox" uid="uid://bd85f0x8xuqpj" path="res://theme/button_normal_texture.tres" id="1_nrt0f"]
+[ext_resource type="StyleBox" uid="uid://t2j80hpen75" path="res://theme/button_click_texture.tres" id="2_4yjuo"]
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/styles/hover = ExtResource("1_nrt0f")
+Button/styles/normal = ExtResource("1_nrt0f")
+Button/styles/pressed = ExtResource("2_4yjuo")
+Label/colors/font_color = Color(0, 0, 0, 1)
