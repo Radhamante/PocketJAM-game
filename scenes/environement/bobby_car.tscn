@@ -1,6 +1,5 @@
 [gd_scene load_steps=4 format=3 uid="uid://cq5j47ktdsyp"]
 
-
 [ext_resource type="PackedScene" uid="uid://cromm4rwgx13t" path="res://model/BobbYCar.fbx" id="1_1vsoq"]
 [ext_resource type="PackedScene" uid="uid://dq7kjvu5f3sfs" path="res://model/bobbY-car-publicity.fbx" id="2_fmfp6"]
 
@@ -19,4 +18,4 @@ transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-1
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_fmfp6")
 
-[node name="bobbY-car-publicity" parent="." index="2" instance=ExtResource("2_fmfp6")]
+[node name="bobbY-car-publicity" parent="." index="1" instance=ExtResource("2_fmfp6")]

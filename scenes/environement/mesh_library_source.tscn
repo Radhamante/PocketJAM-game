@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://x6vuwbht4vsg"]
 
-[ext_resource type="PackedScene" uid="uid://clluktvflkuw8" path="res://scenes/environement/bobby_car.tscn" id="1_aclul"]
+[ext_resource type="PackedScene" uid="uid://cq5j47ktdsyp" path="res://scenes/environement/bobby_car.tscn" id="1_aclul"]
 [ext_resource type="PackedScene" uid="uid://chfs5031vwomr" path="res://scenes/environement/building_exemple.tscn" id="1_pihvh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pihvh"]

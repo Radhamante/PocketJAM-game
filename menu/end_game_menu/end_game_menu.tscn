@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvumac050alo7"]
+
+[ext_resource type="PackedScene" uid="uid://c4q8hf8u8i74i" path="res://menu/background/background.tscn" id="1_gmu1l"]
+[ext_resource type="Theme" uid="uid://dprsiw7ycliib" path="res://theme/theme.tres" id="1_jtsd7"]
+[ext_resource type="Script" uid="uid://b6xlpmk4x8628" path="res://menu/end_game_menu/end_game_menu.gd" id="2_viadb"]
+
+[node name="EndGameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_jtsd7")
+script = ExtResource("2_viadb")
+
+[node name="Background" parent="." instance=ExtResource("1_gmu1l")]
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 45
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 45
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "GAMER SAVED FROM THE BLACKOUT :"
+horizontal_alignment = 1
+
+[node name="gamer_saved" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "XX"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "TIME OF THE DAY"
+horizontal_alignment = 1
+
+[node name="day_time" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "XX"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Other bobbys"
+horizontal_alignment = 1
+
+[node name="leaderboard" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="main_menu" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "MAIN MENU"
+
+[node name="quit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "QUIT
+"
+
+[node name="query_leaderboard" type="HTTPRequest" parent="."]
+
+[node name="send_score" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/main_menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/quit" to="." method="_on_quit_pressed"]
