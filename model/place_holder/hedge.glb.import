@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://3uy2yqrpiavx"
-path="res://.godot/imported/crate.glb-2a914b4dda78a0f46acbdbc82c1a99ca.scn"
+uid="uid://cmrvutjxwmoac"
+path="res://.godot/imported/hedge.glb-68c07e4db73bf19af0579548f165d69a.scn"
 
 [deps]
 
-source_file="res://model/crate.glb"
-dest_files=["res://.godot/imported/crate.glb-2a914b4dda78a0f46acbdbc82c1a99ca.scn"]
+source_file="res://model/place_holder/hedge.glb"
+dest_files=["res://.godot/imported/hedge.glb-68c07e4db73bf19af0579548f165d69a.scn"]
 
 [params]
 

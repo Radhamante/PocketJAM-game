@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1wbvn44d1y0"]
+
+[ext_resource type="PackedScene" uid="uid://cnljn8xqn8n24" path="res://model/Building_Exemple.fbx" id="1_8krhg"]
+[ext_resource type="Material" uid="uid://dp4nqicorvemt" path="res://material/M_Opaque.tres" id="2_mrcvt"]
+
+[node name="Building_Exemple" instance=ExtResource("1_8krhg")]
+
+[node name="SM_exemple" parent="." index="0"]
+material_override = ExtResource("2_mrcvt")
+cast_shadow = 0

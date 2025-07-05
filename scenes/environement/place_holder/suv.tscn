@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpln84m3l27n0"]
 
-[ext_resource type="PackedScene" uid="uid://bbqmrmje635u0" path="res://model/suv.glb" id="1_00ogp"]
+[ext_resource type="PackedScene" uid="uid://bbqmrmje635u0" path="res://model/place_holder/suv.glb" id="1_00ogp"]
 [ext_resource type="PackedScene" uid="uid://cd4bdvlmq3q6b" path="res://scenes/danger_zone/danger_zone.tscn" id="2_0rfs8"]
 
 [node name="suv" instance=ExtResource("1_00ogp")]

@@ -1,7 +1,9 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dp4nqicorvemt"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dp4nqicorvemt"]
 
-[ext_resource type="Shader" uid="uid://birqckjdpc6ha" path="res://material/M_Opaque_script.tres" id="1_expxd"]
+[ext_resource type="Shader" uid="uid://birqckjdpc6ha" path="res://material/scripts/M_Opaque_script.tres" id="1_expxd"]
+[ext_resource type="Texture2D" uid="uid://c61ci8mhuo2hc" path="res://material/Texture/T_ATLAS_D.png" id="2_35qh5"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_expxd")
+shader_parameter/ALbedo = ExtResource("2_35qh5")
