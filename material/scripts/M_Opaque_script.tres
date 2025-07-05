@@ -1,0 +1,80 @@
+[gd_resource type="VisualShader" load_steps=8 format=3 uid="uid://birqckjdpc6ha"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_sv1aa"]
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeClamp" id="VisualShaderNodeClamp_g2ssv"]
+default_input_values = [0, 0.0, 1, -1.0, 2, 0.0]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_d0s0i"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_sv1aa"]
+parameter_name = "ALbedo"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeBooleanConstant" id="VisualShaderNodeBooleanConstant_sra8p"]
+constant = true
+
+[sub_resource type="VisualShaderNodeBooleanConstant" id="VisualShaderNodeBooleanConstant_vgn88"]
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_uxq1t"]
+constant = 0.5
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D ALbedo : source_color;
+
+
+
+void fragment() {
+// Input:4
+	vec2 n_out4p0 = UV;
+
+
+	vec4 n_out2p0;
+// Texture2D:2
+	n_out2p0 = texture(ALbedo, n_out4p0);
+
+
+// BooleanConstant:7
+	bool n_out7p0 = false;
+
+
+// BooleanConstant:6
+	bool n_out6p0 = true;
+
+
+// FloatConstant:8
+	float n_out8p0 = 0.500000;
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	METALLIC = (n_out7p0 ? 1.0 : 0.0);
+	ROUGHNESS = (n_out6p0 ? 1.0 : 0.0);
+	SPECULAR = n_out8p0;
+	AO = n_out8p0;
+
+
+}
+"
+nodes/fragment/0/position = Vector2(600, 0)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_sv1aa")
+nodes/fragment/2/position = Vector2(-1000, -60)
+nodes/fragment/3/node = SubResource("VisualShaderNodeClamp_g2ssv")
+nodes/fragment/3/position = Vector2(-640, 640)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_d0s0i")
+nodes/fragment/4/position = Vector2(-1800, 140)
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture2DParameter_sv1aa")
+nodes/fragment/5/position = Vector2(-1840, 340)
+nodes/fragment/6/node = SubResource("VisualShaderNodeBooleanConstant_sra8p")
+nodes/fragment/6/position = Vector2(-160, 520)
+nodes/fragment/7/node = SubResource("VisualShaderNodeBooleanConstant_vgn88")
+nodes/fragment/7/position = Vector2(-160, 360)
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatConstant_uxq1t")
+nodes/fragment/8/position = Vector2(-100, 720)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 2, 0, 5, 0, 2, 2, 6, 0, 0, 3, 7, 0, 0, 2, 8, 0, 0, 4, 8, 0, 0, 6)

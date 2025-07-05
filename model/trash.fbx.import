@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c7llx3phx1w3f"
-path="res://.godot/imported/fence-straight.glb-58c5d527c012f016893d52a8d725c0c3.scn"
+uid="uid://jnorfxgcxbao"
+path="res://.godot/imported/trash.fbx-e3e622aecfca442e229f960143399c3f.scn"
 
 [deps]
 
-source_file="res://model/fence-straight.glb"
-dest_files=["res://.godot/imported/fence-straight.glb-58c5d527c012f016893d52a8d725c0c3.scn"]
+source_file="res://model/trash.fbx"
+dest_files=["res://.godot/imported/trash.fbx-e3e622aecfca442e229f960143399c3f.scn"]
 
 [params]
 
@@ -28,10 +28,11 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-gltf/naming_version=1
-gltf/embedded_image_handling=1
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
