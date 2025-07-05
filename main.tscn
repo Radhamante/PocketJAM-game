@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl24peuu4b373"]
+[gd_scene load_steps=10 format=3 uid="uid://cl24peuu4b373"]
 
+[ext_resource type="Script" uid="uid://dume2f7gan1gf" path="res://main.gd" id="1_272bh"]
 [ext_resource type="PackedScene" uid="uid://djomhkd3ysrfq" path="res://scenes/player/player.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://dbiqf62d8kh75" path="res://swarm_manager.gd" id="3_7mycd"]
 [ext_resource type="Script" uid="uid://baxooencb82io" path="res://camera_3d.gd" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cju1yf86s21nc" path="res://scenes/follower/follower.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://ba0eqpnlvlpje" path="res://scenes/environement/obsacle_dog.tscn" id="5_7mycd"]
 [ext_resource type="MeshLibrary" uid="uid://bcs1gmbp6lryt" path="res://grid_map_mesh_library.tres" id="5_lquwl"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kek77"]
@@ -12,8 +14,23 @@ polygons = [PackedInt32Array(2, 1, 3), PackedInt32Array(3, 1, 0), PackedInt32Arr
 agent_height = 2.0
 agent_radius = 0.1
 
-[node name="Main" type="Node3D"]
+[sub_resource type="Environment" id="Environment_272bh"]
+ambient_light_source = 2
+ambient_light_color = Color(0.820753, 0.826247, 0.999999, 1)
+ambient_light_energy = 0.3
+tonemap_mode = 2
+ssao_enabled = true
+ssao_radius = 0.45
+ssao_intensity = 1.0
+ssao_power = 15.0
+glow_levels/2 = 0.6
+glow_levels/3 = 0.6
+glow_levels/5 = 0.0
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("sun")]
 process_mode = 1
+script = ExtResource("1_272bh")
+sun = NodePath("DirectionalLight3D")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 0.573577, 0.819152, 0, -0.819152, 0.573577, -3.23, 39.971, 40.6114)
@@ -25,6 +42,10 @@ player = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("2_0xm2m")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0.310744, 0)
 movement_speed = 500
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 11.7328, 0)
+shadow_enabled = true
 
 [node name="world" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
@@ -40,6 +61,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.56756, 0, 1.31872)
 neighbor_distance = 4.0
 separation_distance = 1.0
 
+[node name="Follower2" parent="world/swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 2.7, -9.53674e-07, 1.71294)
+
+[node name="Follower3" parent="world/swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 3.40711, -9.53674e-07, 2.42004)
+
+[node name="Follower4" parent="world/swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 4.11421, -9.53674e-07, 3.12715)
+
+[node name="Follower5" parent="world/swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 4.59582, -9.53674e-07, 3.60876)
+
+[node name="Follower6" parent="world/swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 2.00314, -9.53674e-07, 1.01608)
+
+[node name="Follower7" parent="world/swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 1.21616, -9.53674e-07, 1.80306)
+
+[node name="Follower8" parent="world/swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 1.92326, -9.53674e-07, 2.51017)
+
+[node name="Follower9" parent="world/swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 2.63037, -9.53674e-07, 3.21728)
+
+[node name="Follower10" parent="world/swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 3.33748, -9.53674e-07, 3.92438)
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="world"]
 navigation_mesh = SubResource("NavigationMesh_kek77")
 
@@ -51,5 +99,10 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="world"]
-transform = Transform3D(1, 0, 0, 0, 0.907777, 0.419452, 0, -0.419452, 0.907777, 0, 11.7328, 0)
+[node name="dog" parent="world/NavigationRegion3D" instance=ExtResource("5_7mycd")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -5.65249, 0.000254067, 22.2152)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_272bh")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]

@@ -4,10 +4,13 @@ extends CanvasLayer
 @onready var main_menu: Control = $MainMenu
 @onready var pause_menu: Control = $PauseMenu
 @onready var credits_menu: Control = $CreditsMenu
+@onready var end_game_menu: Control = $EndGameMenu
+@onready var enter_name_menu: Control = $EnterNameMenu
 
 const MAIN = preload("res://main.tscn")
 
 var menus
+var player_name: String
 
 func _ready():
 	get_tree().paused = true
@@ -15,8 +18,10 @@ func _ready():
 		"MAIN": main_menu,
 		"PAUSE": pause_menu,
 		"CREDITS": credits_menu,
+		"END_GAME": end_game_menu,
+		"ENTER_NAME": enter_name_menu,
 	}
-	show_menu("MAIN")
+	show_menu("ENTER_NAME")
 	_reload_game()
 	
 func _input(event):
@@ -30,6 +35,7 @@ func _reload_game():
 	var new_game = MAIN.instantiate()
 	add_child(new_game)
 	game = new_game
+	game.game_ended.connect(_on_game_ended)
 		
 func hide_all_menu():
 	for key in menus:
@@ -42,6 +48,11 @@ func show_menu(_name: String):
 func _pause_pressed() -> void:
 	get_tree().paused = true
 	show_menu("PAUSE")
+	
+func _on_game_ended(gamer_saved: int, day_time: float) -> void:
+	show_menu("END_GAME")
+	game.queue_free()
+	end_game_menu.setup(name, gamer_saved, day_time)
 
 func _on_main_menu_start_pressed() -> void:
 	get_tree().paused = false
@@ -58,3 +69,11 @@ func _on_pause_menu_resume_pressed() -> void:
 func _on_main_menu_pressed() -> void:
 	show_menu("MAIN")
 	_reload_game()
+
+func _on_game_quit_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_enter_name_menu_enter_pressed(name: String) -> void:
+	player_name = name
+	show_menu("MAIN")
