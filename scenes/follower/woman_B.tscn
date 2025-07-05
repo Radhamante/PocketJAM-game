@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb84a7m15yno"]
+
+[ext_resource type="PackedScene" uid="uid://dxeo5n4nw65i2" path="res://model/followers/woman_B.glb" id="1_hr5bo"]
+
+[node name="woman_B2" instance=ExtResource("1_hr5bo")]
