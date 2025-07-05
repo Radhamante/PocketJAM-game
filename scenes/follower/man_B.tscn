@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5715y2m76y43"]
+[gd_scene load_steps=3 format=3 uid="uid://b5715y2m76y43"]
 
 [ext_resource type="PackedScene" uid="uid://cyd74uuaqpdsa" path="res://model/followers/man_B.glb" id="1_yyhin"]
+[ext_resource type="Material" uid="uid://dp4nqicorvemt" path="res://material/M_Opaque.tres" id="2_o73bg"]
 
 [node name="man_B" instance=ExtResource("1_yyhin")]
 
@@ -58,3 +59,6 @@ bones/36/rotation = Quaternion(-0.00275537, 0.183146, 0.97965, -0.0820703)
 bones/37/rotation = Quaternion(-0.346621, 0.0818822, -0.0287087, 0.933983)
 bones/38/rotation = Quaternion(0.639132, -0.047737, -0.0455331, 0.766262)
 bones/39/rotation = Quaternion(0.266161, 0.000271019, -0.000128881, 0.963928)
+
+[node name="Man_B" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_o73bg")

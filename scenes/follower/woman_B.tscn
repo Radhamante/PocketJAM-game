@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bb84a7m15yno"]
+[gd_scene load_steps=3 format=3 uid="uid://bb84a7m15yno"]
 
 [ext_resource type="PackedScene" uid="uid://dxeo5n4nw65i2" path="res://model/followers/woman_B.glb" id="1_hr5bo"]
+[ext_resource type="Material" uid="uid://dp4nqicorvemt" path="res://material/M_Opaque.tres" id="2_q0uua"]
 
 [node name="woman_B2" instance=ExtResource("1_hr5bo")]
+
+[node name="woman_B" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_q0uua")

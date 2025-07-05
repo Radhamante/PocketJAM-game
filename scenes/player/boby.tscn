@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxchjtftesb5s"]
+[gd_scene load_steps=3 format=3 uid="uid://bxchjtftesb5s"]
 
 [ext_resource type="PackedScene" uid="uid://bs8pjumqwed8x" path="res://model/Player/boby.glb" id="1_qoyjn"]
+[ext_resource type="Material" uid="uid://dp4nqicorvemt" path="res://material/M_Opaque.tres" id="2_prxif"]
 
 [node name="boby" instance=ExtResource("1_qoyjn")]
 
@@ -51,3 +52,6 @@ bones/36/rotation = Quaternion(-0.0424599, 0.0594385, 0.995641, -0.0579855)
 bones/37/rotation = Quaternion(-0.444867, -0.0451981, -0.00326541, 0.894449)
 bones/38/rotation = Quaternion(0.709704, -0.161155, -0.0339854, 0.684977)
 bones/39/rotation = Quaternion(0.466419, 0.0687176, -0.0273698, 0.881466)
+
+[node name="boby_body" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_prxif")
