@@ -13,6 +13,9 @@ class_name Follower
 @export var weight_alignment := 1
 @export var weight_target := 2.0
 
+@export var grab_range := 10.0
+@onready var grab_area: Area3D = $"grab-area"
+@onready var grab_area_collision_shape: CollisionShape3D = $"grab-area/CollisionShape3D"
 
 var hold_player_distance: float
 var navigation: NavigationRegion3D
@@ -25,6 +28,7 @@ var vertical_velocity := 0.0
 func _ready() -> void:
 	swarm_root = get_parent_node_3d()
 	hold_player_distance = randf_range(2,7)
+	grab_area_collision_shape.shape.radius = grab_range
 
 func _physics_process(delta):
 	if not player or not swarm_root:
@@ -102,3 +106,9 @@ func _physics_process(delta):
 		var look_dir = horizontal_velocity.normalized()
 		var target_rotation = Vector3(0, atan2(-look_dir.x, -look_dir.z), 0)
 		rotation.y = lerp_angle(rotation.y, target_rotation.y, delta * 5.0)
+
+
+func _on_grabarea_body_entered(body: Node3D) -> void:
+	if body is Player:
+		player = body
+		grab_area.queue_free()

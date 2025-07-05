@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cju1yf86s21nc"]
+[gd_scene load_steps=6 format=3 uid="uid://cju1yf86s21nc"]
 
 [ext_resource type="Script" uid="uid://dr0ue0p8gxrka" path="res://scenes/follower/follower.gd" id="1_5f0wo"]
 
@@ -10,6 +10,9 @@ albedo_color = Color(1, 0.25098, 1, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5f0wo"]
 material = SubResource("StandardMaterial3D_0527f")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_5f0wo"]
+radius = 10.0
+
 [node name="Follower" type="CharacterBody3D"]
 script = ExtResource("1_5f0wo")
 
@@ -20,3 +23,10 @@ shape = SubResource("CapsuleShape3D_0527f")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06714, 0)
 mesh = SubResource("CapsuleMesh_5f0wo")
+
+[node name="grab-area" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grab-area"]
+shape = SubResource("SphereShape3D_5f0wo")
+
+[connection signal="body_entered" from="grab-area" to="." method="_on_grabarea_body_entered"]
