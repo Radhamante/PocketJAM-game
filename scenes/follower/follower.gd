@@ -16,6 +16,8 @@ class_name Follower
 @export var grab_range := 10.0
 @onready var grab_area: Area3D = $"grab-area"
 @onready var grab_area_collision_shape: CollisionShape3D = $"grab-area/CollisionShape3D"
+@onready var kill_particules: CPUParticles3D = $kill_particules
+@onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
 
 var hold_player_distance: float
 var navigation: NavigationRegion3D
@@ -107,6 +109,10 @@ func _physics_process(delta):
 		var target_rotation = Vector3(0, atan2(-look_dir.x, -look_dir.z), 0)
 		rotation.y = lerp_angle(rotation.y, target_rotation.y, delta * 5.0)
 
+func kill() -> void:
+	kill_particules.emitting = true
+	mesh_instance_3d.queue_free()
+	kill_particules.connect("finished", queue_free)
 
 func _on_grabarea_body_entered(body: Node3D) -> void:
 	if body is Player:
