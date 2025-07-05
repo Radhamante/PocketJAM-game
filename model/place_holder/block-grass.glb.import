@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cmrvutjxwmoac"
-path="res://.godot/imported/hedge.glb-e05fcfc4a2207ddc6bd4f1672d693e07.scn"
+uid="uid://17oh8w08p54k"
+path="res://.godot/imported/block-grass.glb-8b7879277e2f55f775f6590ba2e986f2.scn"
 
 [deps]
 
-source_file="res://model/hedge.glb"
-dest_files=["res://.godot/imported/hedge.glb-e05fcfc4a2207ddc6bd4f1672d693e07.scn"]
+source_file="res://model/place_holder/block-grass.glb"
+dest_files=["res://.godot/imported/block-grass.glb-8b7879277e2f55f775f6590ba2e986f2.scn"]
 
 [params]
 

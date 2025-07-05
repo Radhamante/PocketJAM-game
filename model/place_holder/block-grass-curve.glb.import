@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ba483kv6iechu"
-path="res://.godot/imported/block-moving.glb-92462d9bdb10c278867698a7d662d357.scn"
+uid="uid://cnqrw1cixo45f"
+path="res://.godot/imported/block-grass-curve.glb-c552fe25326dbaf6c13c12ef731e31f3.scn"
 
 [deps]
 
-source_file="res://model/block-moving.glb"
-dest_files=["res://.godot/imported/block-moving.glb-92462d9bdb10c278867698a7d662d357.scn"]
+source_file="res://model/place_holder/block-grass-curve.glb"
+dest_files=["res://.godot/imported/block-grass-curve.glb-c552fe25326dbaf6c13c12ef731e31f3.scn"]
 
 [params]
 
