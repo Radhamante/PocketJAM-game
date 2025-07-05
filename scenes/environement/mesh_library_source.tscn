@@ -1,22 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://x6vuwbht4vsg"]
+[gd_scene load_steps=11 format=3 uid="uid://x6vuwbht4vsg"]
 
-[ext_resource type="PackedScene" uid="uid://clluktvflkuw8" path="res://scenes/environement/bobby_car.tscn" id="1_aclul"]
 [ext_resource type="PackedScene" uid="uid://chfs5031vwomr" path="res://scenes/environement/building_exemple.tscn" id="1_pihvh"]
+[ext_resource type="PackedScene" uid="uid://dgo6064ub73ru" path="res://scenes/environement/sm_road.tscn" id="3_kq0pr"]
+[ext_resource type="PackedScene" uid="uid://t54eiww87v51" path="res://scenes/environement/sm_buisson.tscn" id="3_v468x"]
+[ext_resource type="PackedScene" uid="uid://deg38nxdqc3x1" path="res://scenes/environement/sm_sidewalk.tscn" id="4_kq0pr"]
+[ext_resource type="PackedScene" uid="uid://jve4xhtpsl4f" path="res://scenes/environement/streetlight.tscn" id="5_wwe5c"]
+[ext_resource type="PackedScene" uid="uid://cfqnexn7lrc1b" path="res://scenes/environement/trash.tscn" id="6_nrkx4"]
+[ext_resource type="PackedScene" uid="uid://cn6tgtb1sv5vv" path="res://scenes/environement/sm_wall.tscn" id="7_cxavo"]
+[ext_resource type="PackedScene" uid="uid://ddvudiqphhrsv" path="res://scenes/environement/sm_wall_corner.tscn" id="8_uinbn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pihvh"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pihvh"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_aclul"]
-size = Vector3(2, 2, 2)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8yb3q"]
-data = PackedVector3Array(-1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1)
-
 [node name="MeshLibrarySource" type="Node3D"]
 
 [node name="CUBE" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="CUBE" type="MeshInstance3D" parent="CUBE"]
 mesh = SubResource("BoxMesh_pihvh")
@@ -27,17 +28,18 @@ skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/Do
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CUBE/CUBE/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_pihvh")
 
-[node name="CUBEX2" type="Node3D" parent="."]
-
-[node name="CUBE2X" type="MeshInstance3D" parent="CUBEX2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("BoxMesh_aclul")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="CUBEX2/CUBE2X"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CUBEX2/CUBE2X/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_8yb3q")
-
-[node name="BobbYCar" parent="." instance=ExtResource("1_aclul")]
-
 [node name="Building_Exemple" parent="." instance=ExtResource("1_pihvh")]
+
+[node name="SM_Buisson" parent="." instance=ExtResource("3_v468x")]
+
+[node name="SM_Road" parent="." instance=ExtResource("3_kq0pr")]
+
+[node name="SM_Sidewalk" parent="." instance=ExtResource("4_kq0pr")]
+
+[node name="streetlight" parent="." instance=ExtResource("5_wwe5c")]
+
+[node name="trash" parent="." instance=ExtResource("6_nrkx4")]
+
+[node name="SM_Wall" parent="." instance=ExtResource("7_cxavo")]
+
+[node name="SM_Wall_Corner" parent="." instance=ExtResource("8_uinbn")]

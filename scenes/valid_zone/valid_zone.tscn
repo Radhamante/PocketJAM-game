@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://0ocdvew0mnh8"]
+
+[ext_resource type="Texture2D" uid="uid://2fs0kmhw04vw" path="res://sprites/area_texture.png" id="1_fgk2o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mqdf"]
+shading_mode = 0
+albedo_color = Color(1, 0.866667, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oplpn"]
+material = SubResource("StandardMaterial3D_3mqdf")
+radius = 0.015
+height = 1.0
+
+[node name="ValidZone" type="Node3D"]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+amount = 15
+lifetime = 0.4
+speed_scale = 0.3
+randomness = 0.14
+lifetime_randomness = 0.1
+mesh = SubResource("CapsuleMesh_oplpn")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 360, 1)
+emission_ring_height = 2.0
+emission_ring_radius = 5.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+spread = 128.64
+gravity = Vector3(0, 60, 0)
+color = Color(1, 1, 0, 1)
+hue_variation_min = 0.99
+hue_variation_max = 0.99
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, -2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, 0)
+texture = ExtResource("1_fgk2o")
