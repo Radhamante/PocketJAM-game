@@ -13,7 +13,7 @@ class_name Follower
 @export var weight_alignment := 1
 @export var weight_target := 2.0
 
-@export var grab_range := 10.0
+@export var grab_range := 5.0
 @onready var grab_area: Area3D = $"grab-area"
 @onready var grab_area_collision_shape: CollisionShape3D = $"grab-area/CollisionShape3D"
 @onready var kill_particules: CPUParticles3D = $kill_particules

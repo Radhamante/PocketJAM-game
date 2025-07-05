@@ -3,7 +3,7 @@ extends CharacterBody3D
 class_name Player
 
 @export_subgroup("Properties")
-@export var movement_speed = 250
+@export var movement_speed = 200
 @export var jump_strength = 5
 @export var max_fall_speed := -15.0
 

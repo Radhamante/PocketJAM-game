@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bd85f0x8xuqpj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wj5l2"]
+load_path = "res://.godot/imported/button_square_depth_gradient.png-5c43276c4217c1214bbd4b10dcd5334b.ctex"
+
+[resource]
+texture = SubResource("CompressedTexture2D_wj5l2")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
