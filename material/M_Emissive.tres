@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dq0ty6hks42qa"]
 
-[ext_resource type="Shader" uid="uid://cbd6xmasyrca5" path="res://material/M_Emissive_script.tres" id="1_ey5vh"]
+[ext_resource type="Shader" uid="uid://cbd6xmasyrca5" path="res://material/scripts/M_Emissive_script.tres" id="1_ey5vh"]
 
 [resource]
 render_priority = 0
