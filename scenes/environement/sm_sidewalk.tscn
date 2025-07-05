@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://deg38nxdqc3x1"]
+
+[ext_resource type="PackedScene" uid="uid://x8viq7y3qf2l" path="res://model/SM_Sidewalk.fbx" id="1_dtwx5"]
+
+[node name="SM_Sidewalk" instance=ExtResource("1_dtwx5")]
+
+[node name="SM_Sidewalk" parent="." index="0"]
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, -0.5, 0)
