@@ -1,120 +1,96 @@
 extends CharacterBody3D
-
 class_name Follower
 
 @export var speed := 8.0
-@export var response_speed := 6.0
+@export var response_speed := 10.0
 @export var neighbor_distance := 10.0
 @export var separation_distance := 3.0
 @export var min_player_distance := 2.0
 
-@export var weight_cohesion := 1
-@export var weight_separation := 1
-@export var weight_alignment := 1
+@export var weight_cohesion := 1.0
+@export var weight_separation := 1.0
+@export var weight_alignment := 1.0
 @export var weight_target := 2.0
 
 @export var grab_range := 5.0
 @onready var grab_area: Area3D = $"grab-area"
-@onready var grab_area_collision_shape: CollisionShape3D = $"grab-area/CollisionShape3D"
-@onready var kill_particules: CPUParticles3D = $kill_particules
-@onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
+@onready var kill_particles: CPUParticles3D = $kill_particules
+@onready var mesh: MeshInstance3D = $MeshInstance3D
+var nav_region : NavigationRegion3D
 
-var hold_player_distance: float
-var navigation: NavigationRegion3D
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var player: Node3D
-var swarm_root: Node
-
+var player: Node3D = null
+var swarm_root: Node3D
+var hold_distance := 0.0
 var vertical_velocity := 0.0
 
-func _ready() -> void:
+func _ready():
 	swarm_root = get_parent_node_3d()
-	hold_player_distance = randf_range(2,7)
-	grab_area_collision_shape.shape.radius = grab_range
+	hold_distance = randf_range(2.0, 7.0)
+	grab_area.get_node("CollisionShape3D").shape.radius = grab_range
 
 func _physics_process(delta):
-	if not player or not swarm_root:
+	if not player or not swarm_root or not nav_region:
 		return
 
 	var cohesion = Vector3.ZERO
 	var separation = Vector3.ZERO
 	var alignment = Vector3.ZERO
-	var neighbor_count = 0
+	var neighbors := 0
 
 	for other in swarm_root.get_children():
-		if other == self:
+		if other == self or not other is Follower:
 			continue
-
 		var offset = other.global_position - global_position
-		var distance = offset.length()
-		if distance < neighbor_distance:
+		var dist = offset.length()
+		if dist < neighbor_distance:
 			cohesion += other.global_position
 			alignment += other.velocity.normalized()
-			neighbor_count += 1
+			if dist < separation_distance:
+				separation -= offset.normalized() / dist
+			neighbors += 1
 
-			if distance < separation_distance:
-				separation -= offset.normalized() / distance
-
-	if neighbor_count > 0:
-		cohesion = ((cohesion / neighbor_count) - global_position).normalized()
-		alignment = (alignment / neighbor_count).normalized()
+	if neighbors > 0:
+		cohesion = ((cohesion / neighbors) - global_position).normalized()
+		alignment = (alignment / neighbors).normalized()
 
 	var direction = Vector3.ZERO
 	var distance_to_player = global_position.distance_to(player.global_position)
+	var nav_map = nav_region.get_navigation_map()
 
-	if distance_to_player > hold_player_distance:
-		var nav_map = navigation.get_navigation_map()
+	if distance_to_player > hold_distance:
 		var path = NavigationServer3D.map_get_path(nav_map, global_position, player.global_position, false)
-
-		var target_point = global_position
-		if path.size() > 1:
-			target_point = path[1]
-
+		var target_point = path[1] if path.size() > 1 else player.global_position
 		var to_player = (target_point - global_position).normalized()
-		direction = (
-			cohesion * weight_cohesion +
-			separation * weight_separation +
-			alignment * weight_alignment +
-			to_player * weight_target
-		).normalized()
+		direction = (cohesion * weight_cohesion + separation * weight_separation +
+					 alignment * weight_alignment + to_player * weight_target).normalized()
 	elif distance_to_player < min_player_distance:
-		var avoid_player = (global_position - player.global_position).normalized()
-		direction = (
-			cohesion * weight_cohesion +
-			separation * weight_separation +
-			alignment * weight_alignment +
-			avoid_player * weight_target
-		).normalized()
-	else:
-		direction = Vector3.ZERO
+		var avoid = (global_position - player.global_position).normalized()
+		direction = (cohesion * weight_cohesion + separation * weight_separation +
+					 alignment * weight_alignment + avoid * weight_target).normalized()
 
-	# Appliquer la gravité
 	if not is_on_floor():
 		vertical_velocity -= gravity * delta
 	else:
 		vertical_velocity = 0.0
 
-	# Mouvement horizontal uniquement sur XZ
-	var desired_velocity = direction * speed
-	velocity.x = lerp(velocity.x, desired_velocity.x, delta * response_speed)
-	velocity.z = lerp(velocity.z, desired_velocity.z, delta * response_speed)
+	var target_velocity = direction * speed
+	velocity.x = lerp(velocity.x, target_velocity.x, delta * response_speed)
+	velocity.z = lerp(velocity.z, target_velocity.z, delta * response_speed)
 	velocity.y = vertical_velocity
-
 	move_and_slide()
 
-	# Rotation uniquement sur Y
-	var horizontal_velocity = Vector3(velocity.x, 0, velocity.z)
-	if horizontal_velocity.length() > 0.1:
-		var look_dir = horizontal_velocity.normalized()
-		var target_rotation = Vector3(0, atan2(-look_dir.x, -look_dir.z), 0)
-		rotation.y = lerp_angle(rotation.y, target_rotation.y, delta * 5.0)
+	look_at(player.position)
+	rotation.x = 0
+	rotation.z = 0
 
-func kill() -> void:
-	kill_particules.emitting = true
-	mesh_instance_3d.queue_free()
-	kill_particules.connect("finished", queue_free)
+func kill():
+	kill_particles.emitting = true
+	mesh.queue_free()
+	kill_particles.connect("finished", queue_free)
 
-func _on_grabarea_body_entered(body: Node3D) -> void:
-	if body is Player:
+
+func _on_grab_area_body_entered(body: Node3D) -> void:
+	if body is Player: # Ou vérifie une classe spécifique
 		player = body
 		grab_area.queue_free()
