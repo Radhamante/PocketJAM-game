@@ -1,0 +1,137 @@
+[gd_scene load_steps=10 format=3 uid="uid://cl24peuu4b373"]
+
+[ext_resource type="PackedScene" uid="uid://djomhkd3ysrfq" path="res://scenes/player/player.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://dbiqf62d8kh75" path="res://swarm_manager.gd" id="3_7mycd"]
+[ext_resource type="Script" uid="uid://baxooencb82io" path="res://camera_3d.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cju1yf86s21nc" path="res://scenes/follower/follower.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://j7jwlfdu5qsj" path="res://scenes/environement/block_grass_2.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://4jdcmlldm614" path="res://scenes/environement/crate_2.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://c1a0u0djnog0r" path="res://scenes/environement/hedge_2.tscn" id="7_5vw27"]
+[ext_resource type="PackedScene" uid="uid://bpyq4nbw0x4ah" path="res://scenes/environement/fence_straight_2.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://bmbwnxkvwft08" path="res://scenes/environement/block_moving_2.tscn" id="9_kek77"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.310744, 0)
+movement_speed = 500
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(0.965926, -0.23457, 0.109382, 0, 0.422618, 0.906308, -0.258819, -0.875426, 0.408218, 5, 45, 20)
+projection = 1
+size = 20.0
+script = ExtResource("3_h2yge")
+player = NodePath("../Player")
+
+[node name="swarm_root" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.26576, 0, 0)
+script = ExtResource("3_7mycd")
+player = NodePath("../Player")
+
+[node name="Follower11" parent="swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49168, 0, 0)
+
+[node name="Follower" parent="swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.88628)
+neighbor_distance = 4.0
+separation_distance = 1.0
+
+[node name="Follower2" parent="swarm_root" instance=ExtResource("4_1bvp3")]
+
+[node name="Follower3" parent="swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.81803, 0, 0)
+
+[node name="Follower4" parent="swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.32021)
+
+[node name="Follower5" parent="swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.72667, 0, 0)
+
+[node name="Follower6" parent="swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.58883, 0, 0)
+
+[node name="Follower7" parent="swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7923, 0, 0)
+
+[node name="Follower8" parent="swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26286, 0, 0)
+
+[node name="Follower9" parent="swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.05393, 0, 0)
+
+[node name="Follower10" parent="swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.11981, 0, 0)
+
+[node name="Follower12" parent="swarm_root" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.59161, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="block-grass2" parent="Node3D" instance=ExtResource("4_lquwl")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -103.801, 0)
+
+[node name="crate2" parent="Node3D" instance=ExtResource("6_272bh")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -13.1684, -3.80051, -0.996098)
+
+[node name="crate3" parent="Node3D" instance=ExtResource("6_272bh")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10.5062, -3.80051, -0.996098)
+
+[node name="crate6" parent="Node3D" instance=ExtResource("6_272bh")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10.5062, -1.24933, -0.996098)
+
+[node name="crate4" parent="Node3D" instance=ExtResource("6_272bh")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10.5286, -3.80051, 1.776)
+
+[node name="crate5" parent="Node3D" instance=ExtResource("6_272bh")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -7.8663, -3.80051, 1.776)
+
+[node name="hedge2" parent="Node3D" instance=ExtResource("7_5vw27")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 27.2368, -3.80051, -10.4922)
+
+[node name="hedge3" parent="Node3D" instance=ExtResource("7_5vw27")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 35.884, -3.80051, -10.4922)
+
+[node name="hedge4" parent="Node3D" instance=ExtResource("7_5vw27")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 44.4428, -3.80051, -10.4922)
+
+[node name="hedge5" parent="Node3D" instance=ExtResource("7_5vw27")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 19.1082, -3.80051, -10.4922)
+
+[node name="fence-straight2" parent="Node3D" instance=ExtResource("8_5vw27")]
+transform = Transform3D(-5, 0, 4.37114e-07, 0, 5, 0, -4.37114e-07, 0, -5, 1.38059, -3.80051, 15.7597)
+
+[node name="fence-straight3" parent="Node3D" instance=ExtResource("8_5vw27")]
+transform = Transform3D(-5, 0, 4.37114e-07, 0, 5, 0, -4.37114e-07, 0, -5, 5.39131, -3.80051, 15.7597)
+
+[node name="fence-straight4" parent="Node3D" instance=ExtResource("8_5vw27")]
+transform = Transform3D(-5, 0, 4.37114e-07, 0, 5, 0, -4.37114e-07, 0, -5, 9.42155, -3.80051, 15.7597)
+
+[node name="fence-straight5" parent="Node3D" instance=ExtResource("8_5vw27")]
+transform = Transform3D(-5, 0, 4.37114e-07, 0, 5, 0, -4.37114e-07, 0, -5, 13.4647, -3.80051, 15.7597)
+
+[node name="fence-straight6" parent="Node3D" instance=ExtResource("8_5vw27")]
+transform = Transform3D(6.55671e-07, 0, 5, 0, 5, 0, -5, 0, 6.55671e-07, 13.4647, -3.80051, 15.7597)
+
+[node name="fence-straight7" parent="Node3D" instance=ExtResource("8_5vw27")]
+transform = Transform3D(6.55671e-07, 0, 5, 0, 5, 0, -5, 0, 6.55671e-07, 13.4647, -3.80051, 19.7924)
+
+[node name="fence-straight8" parent="Node3D" instance=ExtResource("8_5vw27")]
+transform = Transform3D(6.55671e-07, 0, 5, 0, 5, 0, -5, 0, 6.55671e-07, 13.4647, -3.80051, 23.9632)
+
+[node name="fence-straight9" parent="Node3D" instance=ExtResource("8_5vw27")]
+transform = Transform3D(5, 0, -8.74228e-07, 0, 5, 0, 8.74228e-07, 0, 5, 13.4647, -3.80051, 23.9632)
+
+[node name="fence-straight10" parent="Node3D" instance=ExtResource("8_5vw27")]
+transform = Transform3D(5, 0, -8.74228e-07, 0, 5, 0, 8.74228e-07, 0, 5, 9.46472, -3.80051, 23.9632)
+
+[node name="fence-straight11" parent="Node3D" instance=ExtResource("8_5vw27")]
+transform = Transform3D(5, 0, -8.74228e-07, 0, 5, 0, 8.74228e-07, 0, 5, 5.46472, -3.80051, 23.9632)
+
+[node name="fence-straight12" parent="Node3D" instance=ExtResource("8_5vw27")]
+transform = Transform3D(5, 0, -8.74228e-07, 0, 5, 0, 8.74228e-07, 0, 5, 1.46472, -3.80051, 23.9632)
+
+[node name="block-moving2" parent="Node3D" instance=ExtResource("9_kek77")]
+transform = Transform3D(18.4761, -7.64289, -0.468502, 7.6066, 18.1791, 3.41483, -0.879113, -3.33283, 19.7007, 41.6523, -8.09549, 9.0501)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.907777, 0.419452, 0, -0.419452, 0.907777, 0, 11.7328, 0)
