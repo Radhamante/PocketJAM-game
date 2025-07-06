@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://1amiiq7xfogn"]
+[gd_scene load_steps=5 format=3 uid="uid://1amiiq7xfogn"]
 
 [ext_resource type="Theme" uid="uid://dprsiw7ycliib" path="res://theme/theme.tres" id="1_q6idt"]
 [ext_resource type="PackedScene" uid="uid://c4q8hf8u8i74i" path="res://menu/background/background.tscn" id="2_e5xhn"]
 [ext_resource type="Script" uid="uid://cf6dms274xxja" path="res://menu/main_menu/main_menu.gd" id="2_qs6vt"]
+[ext_resource type="Texture2D" uid="uid://bobryveunhccp" path="res://sprites/title.png" id="4_7r8i1"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -48,6 +49,19 @@ text = "CREDITS"
 [node name="quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "QUIT"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -282.0
+offset_top = 40.0
+offset_right = 1638.0
+offset_bottom = 474.0
+grow_horizontal = 2
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_7r8i1")
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/option" to="." method="_on_option_pressed"]

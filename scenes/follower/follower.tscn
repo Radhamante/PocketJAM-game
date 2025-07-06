@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cju1yf86s21nc"]
+[gd_scene load_steps=17 format=3 uid="uid://cju1yf86s21nc"]
 
 [ext_resource type="Script" uid="uid://dr0ue0p8gxrka" path="res://scenes/follower/follower.gd" id="1_5f0wo"]
 [ext_resource type="PackedScene" uid="uid://bb11rg3uxwu4g" path="res://scenes/follower/man_A.tscn" id="2_yiu0e"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://eibj4ya01ibo" path="res://scenes/follower/woman_A.tscn" id="4_xeeeb"]
 [ext_resource type="PackedScene" uid="uid://bb84a7m15yno" path="res://scenes/follower/woman_B.tscn" id="5_s6aai"]
 [ext_resource type="PackedScene" uid="uid://74hvrbfh2uti" path="res://scenes/savage_effect/savage_effect.tscn" id="6_tapvs"]
+[ext_resource type="AudioStream" uid="uid://b543re4jqsn7l" path="res://sound/sfx/saved.mp3" id="7_xeeeb"]
+[ext_resource type="AudioStream" uid="uid://dsqdxfasgyrps" path="res://sound/sfx/death.ogg" id="8_s6aai"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0527f"]
 
@@ -77,3 +79,12 @@ mesh = SubResource("SphereMesh_ovswd")
 
 [node name="SavageEffect" parent="." instance=ExtResource("6_tapvs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32208, 0)
+
+[node name="savedAudioStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_xeeeb")
+volume_db = 12.0
+
+[node name="deathAudioStream" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.84578, 0)
+stream = ExtResource("8_s6aai")
+volume_db = 5.0

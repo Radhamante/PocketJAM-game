@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://diwa1he8gh8g4"]
+[gd_scene load_steps=7 format=3 uid="uid://diwa1he8gh8g4"]
 
 [ext_resource type="Theme" uid="uid://dprsiw7ycliib" path="res://theme/theme.tres" id="1_n0ddq"]
 [ext_resource type="Script" uid="uid://d1g032q67hu63" path="res://menu/enter_name_menu/enter_name_menu.gd" id="2_n2e7y"]
 [ext_resource type="PackedScene" uid="uid://c4q8hf8u8i74i" path="res://menu/background/background.tscn" id="2_w35wl"]
+[ext_resource type="Texture2D" uid="uid://bobryveunhccp" path="res://sprites/title.png" id="4_n2e7y"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_w35wl"]
 keycode = 4194309
@@ -55,5 +56,21 @@ grow_horizontal = 2
 grow_vertical = 2
 shortcut = SubResource("Shortcut_n2e7y")
 text = "ENTER"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -193.0
+offset_right = 1578.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("4_n2e7y")
 
 [connection signal="pressed" from="enter" to="." method="_on_enter_pressed"]

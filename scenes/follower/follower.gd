@@ -14,6 +14,8 @@ var	animationPlayer
 @export var weight_target := 2.0
 
 @onready var kill_particles: CPUParticles3D = $kill_particules
+@onready var saved_audio_stream: AudioStreamPlayer = $savedAudioStream
+@onready var death_audio_stream: AudioStreamPlayer3D = $deathAudioStream
 
 var nav_region : NavigationRegion3D
 @onready var savage_effect: Node3D = $SavageEffect
@@ -112,10 +114,14 @@ func _physics_process(delta):
 func kill():
 	kill_particles.emitting = true
 	kill_particles.connect("finished", queue_free)
+	death_audio_stream.pitch_scale += randf_range(-.2, .2)
+	death_audio_stream.play()
 
 
 func set_target_position(pos: Vector3):
-	car_position = pos
+	if not car_position:
+		saved_audio_stream.play()
+		car_position = pos
 	
 	
 func handle_animation(delta):
