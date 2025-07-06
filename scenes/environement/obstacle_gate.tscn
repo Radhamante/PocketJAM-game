@@ -110,6 +110,9 @@ shape = SubResource("ConvexPolygonShape3D_y2och")
 [node name="gate_door" parent="." index="1" instance=ExtResource("2_c8vnk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0138664, 0.989949, -0.0436614)
 
+[node name="gate_door" parent="gate_door" index="0"]
+surface_material_override/0 = ExtResource("2_0ldlt")
+
 [node name="DangerZone" parent="gate_door" index="1" instance=ExtResource("3_0ldlt")]
 transform = Transform3D(-0.0254826, 0, -1.50793, 0, 5.51389, 0, 2.93764, 0, -0.0130806, 0.798233, -0.118434, 1.5139)
 
@@ -127,3 +130,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_0ldlt")
 }
 autoplay = "gate"
+
+[editable path="gate_door"]

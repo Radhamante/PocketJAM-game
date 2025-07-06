@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://qwtqx871fqd2"]
+[gd_scene load_steps=17 format=3 uid="uid://qwtqx871fqd2"]
 
 [ext_resource type="PackedScene" uid="uid://cq5j47ktdsyp" path="res://scenes/environement/bobby_car.tscn" id="1_cfjva"]
 [ext_resource type="Script" uid="uid://dume2f7gan1gf" path="res://scenes/level/level.gd" id="1_lkxmd"]
@@ -6,11 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://djomhkd3ysrfq" path="res://scenes/player/player.tscn" id="3_xbhhu"]
 [ext_resource type="Script" uid="uid://baxooencb82io" path="res://camera_3d.gd" id="4_u8rbc"]
 [ext_resource type="PackedScene" uid="uid://ba0eqpnlvlpje" path="res://scenes/environement/obsacle_dog.tscn" id="5_so7sr"]
-[ext_resource type="PackedScene" uid="uid://0ocdvew0mnh8" path="res://scenes/valid_zone/valid_zone.tscn" id="5_u8rbc"]
 [ext_resource type="AudioStream" uid="uid://c572v6t5xhk6d" path="res://sound/music/Electric - 3 Minute Countdown.mp3" id="6_0f3yk"]
 [ext_resource type="PackedScene" uid="uid://cunjlmj3m7o2u" path="res://scenes/environement/obstacle_gate.tscn" id="6_2qg3m"]
 [ext_resource type="Script" uid="uid://dbiqf62d8kh75" path="res://swarm_manager.gd" id="7_g6sy5"]
-[ext_resource type="PackedScene" path="res://scenes/environement/car.tscn" id="9_2qg3m"]
+[ext_resource type="PackedScene" uid="uid://byo6yyos8v08a" path="res://scenes/environement/car.tscn" id="9_2qg3m"]
 [ext_resource type="PackedScene" uid="uid://cfqnexn7lrc1b" path="res://scenes/environement/trash.tscn" id="10_wdc5c"]
 [ext_resource type="AudioStream" uid="uid://brdgerilq5fnu" path="res://sound/music/Crowd panic sound effect.mp3" id="11_jyww5"]
 [ext_resource type="Environment" uid="uid://b01mipx4a50xc" path="res://theme/environement.tres" id="13_vigbq"]
@@ -27,6 +26,7 @@ agent_max_climb = 0.0
 [node name="Level1" type="Node3D" node_paths=PackedStringArray("sun")]
 script = ExtResource("1_lkxmd")
 sun = NodePath("Sun")
+day_duration = 180.0
 
 [node name="Player" parent="." instance=ExtResource("3_xbhhu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59192, 0, 0)
@@ -56,6 +56,9 @@ metadata/_editor_floor_ = Vector3(0, -3, 0)
 
 [node name="BobbYCar" parent="world/pathfinding" instance=ExtResource("1_cfjva")]
 transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 0, 0.0200615, 0)
+
+[node name="Sprite3D" parent="world/pathfinding/BobbYCar/ValidZone" index="1"]
+modulate = Color(1, 1, 1, 0.14902)
 
 [node name="Car" parent="world/pathfinding" instance=ExtResource("9_2qg3m")]
 transform = Transform3D(0.573576, 0, -0.819152, 0, 1, 0, 0.819152, 0, 0.573576, 38.5894, 0, 25.4727)
@@ -98,6 +101,225 @@ navigation = NodePath("../pathfinding")
 
 [node name="Follower" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3581, -7.30854e-07, 12.41)
+
+[node name="Follower2" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3581, -7.30854e-07, 19.41)
+
+[node name="Follower3" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3581, -7.30854e-07, 17.41)
+
+[node name="Follower4" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.3581, -7.30854e-07, 15.41)
+
+[node name="Follower5" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.3581, -7.30854e-07, 10.41)
+
+[node name="Follower6" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.3581, -7.30854e-07, 18.41)
+
+[node name="Follower7" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.3581, -7.30854e-07, 16.41)
+
+[node name="Follower8" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.3581, -7.30854e-07, 18.41)
+
+[node name="Follower9" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.3581, -7.30854e-07, 15.41)
+
+[node name="Follower10" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.3581, -7.30854e-07, 4.41)
+
+[node name="Follower11" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.3581, -7.30854e-07, -2.59)
+
+[node name="Follower12" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3581, -7.30854e-07, -0.59)
+
+[node name="Follower13" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.3581, -7.30854e-07, -7.59)
+
+[node name="Follower14" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.3581, -7.30854e-07, -9.59)
+
+[node name="Follower15" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.3581, -7.30854e-07, -16.59)
+
+[node name="Follower16" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.3581, -7.30854e-07, -21.59)
+
+[node name="Follower17" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3581, -7.30854e-07, -27.59)
+
+[node name="Follower18" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.3581, -7.30854e-07, -22.59)
+
+[node name="Follower19" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.3581, -7.30854e-07, -35.59)
+
+[node name="Follower20" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3581, -7.30854e-07, -36.59)
+
+[node name="Follower21" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3581, -7.30854e-07, -36.59)
+
+[node name="Follower22" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3581, -7.30854e-07, -29.59)
+
+[node name="Follower23" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.3581, -7.30854e-07, -29.59)
+
+[node name="Follower24" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3581, -7.30854e-07, -25.59)
+
+[node name="Follower25" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.358097, -7.30854e-07, -25.59)
+
+[node name="Follower26" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6419, -7.30854e-07, -20.59)
+
+[node name="Follower27" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6419, -7.30854e-07, -14.59)
+
+[node name="Follower28" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6419, -7.30854e-07, -16.59)
+
+[node name="Follower29" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3581, -7.30854e-07, -12.59)
+
+[node name="Follower30" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3581, -7.30854e-07, -8.59)
+
+[node name="Follower31" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3581, -7.30854e-07, -4.59)
+
+[node name="Follower32" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6419, -7.30854e-07, 6.41)
+
+[node name="Follower33" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6419, -7.30854e-07, 12.41)
+
+[node name="Follower34" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.6419, -7.30854e-07, 16.41)
+
+[node name="Follower35" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6419, -7.30854e-07, 10.41)
+
+[node name="Follower36" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6419, -7.30854e-07, 14.41)
+
+[node name="Follower37" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6419, -7.30854e-07, 4.41)
+
+[node name="Follower38" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6419, -7.30854e-07, -6.59)
+
+[node name="Follower39" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6419, -7.30854e-07, -13.59)
+
+[node name="Follower40" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6419, -7.30854e-07, -2.59)
+
+[node name="Follower41" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6419, -7.30854e-07, -5.59)
+
+[node name="Follower42" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6419, -7.30854e-07, -0.59)
+
+[node name="Follower43" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.6419, -7.30854e-07, -7.59)
+
+[node name="Follower44" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6419, -7.30854e-07, -12.59)
+
+[node name="Follower45" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6419, -7.30854e-07, -16.59)
+
+[node name="Follower46" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.6419, -7.30854e-07, 2.41)
+
+[node name="Follower47" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6419, -7.30854e-07, 10.41)
+
+[node name="Follower48" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6419, -7.30854e-07, 12.41)
+
+[node name="Follower49" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6419, -7.30854e-07, 16.41)
+
+[node name="Follower50" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.6419, -7.30854e-07, 31.41)
+
+[node name="Follower51" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.6419, -7.30854e-07, 39.41)
+
+[node name="Follower52" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.6419, -7.30854e-07, 36.41)
+
+[node name="Follower53" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6419, -7.30854e-07, 51.41)
+
+[node name="Follower54" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6419, -7.30854e-07, 50.41)
+
+[node name="Follower55" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6419, -7.30854e-07, 41.41)
+
+[node name="Follower56" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.6419, -7.30854e-07, 43.41)
+
+[node name="Follower57" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6419, -7.30854e-07, 51.41)
+
+[node name="Follower58" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6419, -7.30854e-07, 40.41)
+
+[node name="Follower59" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6419, -7.30854e-07, 32.41)
+
+[node name="Follower60" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3581, -7.30854e-07, 41.41)
+
+[node name="Follower61" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3581, -7.30854e-07, 38.41)
+
+[node name="Follower62" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.3581, -7.30854e-07, 38.41)
+
+[node name="Follower63" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3581, -7.30854e-07, 32.41)
+
+[node name="Follower64" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.3581, -7.30854e-07, 32.41)
+
+[node name="Follower65" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3581, -7.30854e-07, -14.59)
+
+[node name="Follower66" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3581, -7.30854e-07, -9.59)
+
+[node name="Follower67" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.3581, -7.30854e-07, -6.59)
+
+[node name="Follower68" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3581, -7.30854e-07, -20.59)
+
+[node name="Follower69" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3581, -7.30854e-07, -18.59)
+
+[node name="Follower70" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6419, -7.30854e-07, 9.41)
+
+[node name="Follower71" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6419, -7.30854e-07, 23.41)
+
+[node name="Follower72" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6419, -7.30854e-07, 23.41)
+
+[node name="Follower73" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6419, -4, 23.41)
+
+[node name="Follower74" parent="world/swarm_root" instance=ExtResource("14_vigbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.6419, -4, 29.41)
 
 [node name="obstacle" type="Node3D" parent="world"]
 transform = Transform3D(0.573577, 0, 0.819152, 0, 1, 0, -0.819152, 0, 0.573577, 0, 0, 0)
@@ -180,9 +402,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5866, 0.0388799, 58.7625)
 [node name="trash11" parent="world/obstacle" instance=ExtResource("10_wdc5c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.4462, 0.0388799, 50.8501)
 
-[node name="ValidZone" parent="." instance=ExtResource("5_u8rbc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 stream = ExtResource("6_0f3yk")
@@ -229,3 +448,6 @@ theme_override_constants/margin_right = 50
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 show_percentage = false
+
+[editable path="world/pathfinding/BobbYCar"]
+[editable path="world/pathfinding/BobbYCar/ValidZone"]
