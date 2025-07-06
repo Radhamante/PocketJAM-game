@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dume2f7gan1gf" path="res://main.gd" id="1_272bh"]
 [ext_resource type="PackedScene" uid="uid://djomhkd3ysrfq" path="res://scenes/player/player.tscn" id="2_0xm2m"]
+[ext_resource type="Environment" uid="uid://b01mipx4a50xc" path="res://theme/environement.tres" id="2_4c57u"]
 [ext_resource type="Script" uid="uid://dbiqf62d8kh75" path="res://swarm_manager.gd" id="3_7mycd"]
 [ext_resource type="Script" uid="uid://baxooencb82io" path="res://camera_3d.gd" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cju1yf86s21nc" path="res://scenes/follower/follower.tscn" id="4_1bvp3"]
@@ -15,19 +16,6 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Arr
 agent_height = 2.0
 agent_radius = 0.1
 
-[sub_resource type="Environment" id="Environment_272bh"]
-ambient_light_source = 2
-ambient_light_color = Color(0.820753, 0.826247, 0.999999, 1)
-ambient_light_energy = 0.3
-tonemap_mode = 2
-ssao_enabled = true
-ssao_radius = 0.45
-ssao_intensity = 1.0
-ssao_power = 15.0
-glow_levels/2 = 0.6
-glow_levels/3 = 0.6
-glow_levels/5 = 0.0
-
 [node name="Main" type="Node3D" node_paths=PackedStringArray("sun")]
 process_mode = 1
 script = ExtResource("1_272bh")
@@ -35,6 +23,7 @@ sun = NodePath("Sun")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 0.573577, 0.819152, 0, -0.819152, 0.573577, -3.23, 39.971, 40.6114)
+environment = ExtResource("2_4c57u")
 projection = 1
 size = 12.0
 script = ExtResource("3_h2yge")
@@ -103,7 +92,7 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 31.2865, 0.152858, 2.25527)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_272bh")
+environment = ExtResource("2_4c57u")
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 

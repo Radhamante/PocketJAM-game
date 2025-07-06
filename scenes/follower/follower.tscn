@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cju1yf86s21nc"]
+[gd_scene load_steps=16 format=3 uid="uid://cju1yf86s21nc"]
 
 [ext_resource type="Script" uid="uid://dr0ue0p8gxrka" path="res://scenes/follower/follower.gd" id="1_5f0wo"]
 [ext_resource type="PackedScene" uid="uid://bb11rg3uxwu4g" path="res://scenes/follower/man_A.tscn" id="2_yiu0e"]
 [ext_resource type="PackedScene" uid="uid://b5715y2m76y43" path="res://scenes/follower/man_B.tscn" id="3_tapvs"]
 [ext_resource type="PackedScene" uid="uid://eibj4ya01ibo" path="res://scenes/follower/woman_A.tscn" id="4_xeeeb"]
 [ext_resource type="PackedScene" uid="uid://bb84a7m15yno" path="res://scenes/follower/woman_B.tscn" id="5_s6aai"]
+[ext_resource type="PackedScene" uid="uid://74hvrbfh2uti" path="res://scenes/savage_effect/savage_effect.tscn" id="6_tapvs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0527f"]
 
@@ -81,5 +82,8 @@ mesh = SubResource("SphereMesh_ovswd")
 transform = Transform3D(0.280171, 0, 0, 0, 0.280171, 0, 0, 0, 0.280171, -0.227009, 1.78952, -0.239228)
 visible = false
 mesh = SubResource("SphereMesh_ovswd")
+
+[node name="SavageEffect" parent="." instance=ExtResource("6_tapvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32208, 0)
 
 [connection signal="body_entered" from="grab-area" to="." method="_on_grab_area_body_entered"]

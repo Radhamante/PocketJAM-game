@@ -11,10 +11,11 @@ var movement_velocity: Vector3
 var rotation_direction: float
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-@onready var particles_trail = $ParticlesTrail
-@onready var sound_footsteps = $SoundFootsteps
-@onready var model = $Character
+@export var grab_range := 5.0
+@onready var grab_area: Area3D = $"grab-area"
 
+func _ready() -> void:
+	grab_area.get_node("CollisionShape3D").shape.radius = grab_range
 
 # Functions
 func _physics_process(delta):
