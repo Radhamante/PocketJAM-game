@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dp4nqicorvemt"]
 
 [ext_resource type="Shader" uid="uid://birqckjdpc6ha" path="res://material/scripts/M_Opaque_script.tres" id="1_expxd"]
-[ext_resource type="Texture2D" uid="uid://c61ci8mhuo2hc" path="res://material/Texture/T_ATLAS_D.png" id="2_35qh5"]
+[ext_resource type="Texture2D" uid="uid://b01cjcuf50k7y" path="res://material/Texture/T_ATLAS_D.png" id="2_35qh5"]
 
 [resource]
 render_priority = 0
