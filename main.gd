@@ -3,7 +3,7 @@ extends Node3D
 signal game_ended(day_time: float, gamer_saved: int)
 
 @export var sun: DirectionalLight3D
-@export var day_duration = 3.0
+@export var day_duration = 180.0
 
 
 var gamer_saved = 0

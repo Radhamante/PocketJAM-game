@@ -38,6 +38,7 @@ material = SubResource("StandardMaterial3D_a84gk")
 
 [node name="Follower" type="CharacterBody3D"]
 script = ExtResource("1_5f0wo")
+neighbor_distance = 8.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02863, 0)
