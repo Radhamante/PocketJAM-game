@@ -1,8 +1,10 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dq0ty6hks42qa"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dq0ty6hks42qa"]
 
 [ext_resource type="Shader" uid="uid://cbd6xmasyrca5" path="res://material/scripts/M_Emissive_script.tres" id="1_ey5vh"]
+[ext_resource type="Texture2D" uid="uid://b01cjcuf50k7y" path="res://material/Texture/T_ATLAS_D.png" id="2_h8bjk"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_ey5vh")
-shader_parameter/Emissive_Power = 0.0
+shader_parameter/EmissiveColor = ExtResource("2_h8bjk")
+shader_parameter/Emissive_Power = 1.0

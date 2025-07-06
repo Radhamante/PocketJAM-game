@@ -8,6 +8,7 @@ input_name = "uv"
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_8b3nt"]
 parameter_name = "EmissiveColor"
+texture_type = 1
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_x1tvl"]
 operator = 2
@@ -15,15 +16,15 @@ operator = 2
 [sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_lmaws"]
 parameter_name = "Emissive_Power"
 hint = 1
-min = 1.0
 max = 10.0
+default_value_enabled = true
 
 [resource]
 code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 
-uniform sampler2D EmissiveColor;
-uniform float Emissive_Power : hint_range(1.0, 10.0);
+uniform sampler2D EmissiveColor : source_color;
+uniform float Emissive_Power : hint_range(0.0, 10.0) = 0.0;
 
 
 
@@ -52,6 +53,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-150.905, -64.0004)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_noapb")
 nodes/fragment/2/position = Vector2(-540, 140)
 nodes/fragment/3/node = SubResource("VisualShaderNodeInput_n14cm")
@@ -59,7 +61,7 @@ nodes/fragment/3/position = Vector2(-1460, 180)
 nodes/fragment/4/node = SubResource("VisualShaderNodeTexture2DParameter_8b3nt")
 nodes/fragment/4/position = Vector2(-1500, 400)
 nodes/fragment/5/node = SubResource("VisualShaderNodeFloatOp_x1tvl")
-nodes/fragment/5/position = Vector2(-80, 460)
+nodes/fragment/5/position = Vector2(-100, 500)
 nodes/fragment/6/node = SubResource("VisualShaderNodeFloatParameter_lmaws")
 nodes/fragment/6/position = Vector2(-660, 740)
 nodes/fragment/connections = PackedInt32Array(3, 0, 2, 0, 4, 0, 2, 2, 2, 0, 0, 0, 2, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 5)

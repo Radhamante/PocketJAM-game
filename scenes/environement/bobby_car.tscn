@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cromm4rwgx13t" path="res://model/BobbYCar.fbx" id="1_1vsoq"]
 [ext_resource type="Material" uid="uid://dp4nqicorvemt" path="res://material/M_Opaque.tres" id="2_bmx11"]
-[ext_resource type="PackedScene" uid="uid://dq7kjvu5f3sfs" path="res://model/bobbY-car-publicity.fbx" id="2_fmfp6"]
 [ext_resource type="Script" uid="uid://k5ticr7ilyvl" path="res://scenes/valid_zone/area_3d_safe_zone.gd" id="3_qjyp5"]
 [ext_resource type="PackedScene" uid="uid://0ocdvew0mnh8" path="res://scenes/valid_zone/valid_zone.tscn" id="3_tlq6h"]
+[ext_resource type="PackedScene" uid="uid://diyhf52ykl6gh" path="res://scenes/environement/bobb_y_car_publicity.tscn" id="5_bmx11"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fmfp6"]
 size = Vector3(0.0327301, 0.0168457, 0.0157471)
@@ -25,16 +25,16 @@ transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-1
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0.00991821, 0.799561, -0.0122071)
 shape = SubResource("BoxShape3D_fmfp6")
 
-[node name="bobbY-car-publicity" parent="." index="1" instance=ExtResource("2_fmfp6")]
-
-[node name="Area3D_safe_zone" type="Area3D" parent="." index="2"]
+[node name="Area3D_safe_zone" type="Area3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 script = ExtResource("3_qjyp5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D_safe_zone" index="0"]
 shape = SubResource("SphereShape3D_qjyp5")
 
-[node name="ValidZone" parent="." index="3" instance=ExtResource("3_tlq6h")]
+[node name="ValidZone" parent="." index="2" instance=ExtResource("3_tlq6h")]
+
+[node name="bobbY-car-publicity" parent="." index="3" instance=ExtResource("5_bmx11")]
 
 [connection signal="body_entered" from="Area3D_safe_zone" to="Area3D_safe_zone" method="_on_body_entered"]
 [connection signal="body_exited" from="Area3D_safe_zone" to="Area3D_safe_zone" method="_on_body_exited"]

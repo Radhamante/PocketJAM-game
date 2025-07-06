@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://diyhf52ykl6gh"]
+
+[ext_resource type="PackedScene" uid="uid://dq7kjvu5f3sfs" path="res://model/bobbY-car-publicity.fbx" id="1_b2vft"]
+[ext_resource type="Material" uid="uid://dp4nqicorvemt" path="res://material/M_Opaque.tres" id="2_ewd1i"]
+[ext_resource type="Material" uid="uid://dq0ty6hks42qa" path="res://material/M_Emissive.tres" id="3_dnovo"]
+
+[node name="bobbY-car-publicity" instance=ExtResource("1_b2vft")]
+
+[node name="CommercialSupport" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ewd1i")
+surface_material_override/1 = ExtResource("3_dnovo")
