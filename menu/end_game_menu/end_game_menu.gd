@@ -24,7 +24,7 @@ func send_score(_name: String, _gamer_saved: int, _day_time: float):
 	var headers = ["Content-Type: application/json"]
 	var json_body = {
 		"player_name": _name,
-		"score": _day_time
+		"score": _gamer_saved
 	}
 	var error = send_score_request.request(
 		url,
