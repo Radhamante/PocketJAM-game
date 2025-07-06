@@ -3,7 +3,8 @@ extends Node3D
 signal game_ended(day_time: float, gamer_saved: int)
 
 @export var sun: DirectionalLight3D
-@export var day_duration = 20
+@export var day_duration = 180.0
+
 
 @export_range(0.0,365.0) var sun_hue = 16.0
 @export_range(0.0,100.0) var sun_max_saturation = 37.0
