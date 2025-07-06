@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bc4s0praamr8t"]
+[gd_scene load_steps=8 format=3 uid="uid://bc4s0praamr8t"]
 
 [ext_resource type="Script" uid="uid://cw0i4b2p0dhfk" path="res://menu/root_menu.gd" id="1_02alu"]
 [ext_resource type="PackedScene" uid="uid://1amiiq7xfogn" path="res://menu/main_menu/main_menu.tscn" id="1_8j4fq"]
-[ext_resource type="PackedScene" uid="uid://qwtqx871fqd2" path="res://scenes/level/level_1.tscn" id="2_6nsqn"]
 [ext_resource type="PackedScene" uid="uid://c4s5y2nw0bhqv" path="res://menu/pause_menu/pause_menu.tscn" id="3_3oibf"]
 [ext_resource type="PackedScene" uid="uid://nv8neqdttrjf" path="res://menu/credits_menu/credits_menu.tscn" id="4_3oibf"]
 [ext_resource type="PackedScene" uid="uid://bvumac050alo7" path="res://menu/end_game_menu/end_game_menu.tscn" id="5_bgtps"]
@@ -12,7 +11,6 @@
 [node name="RootMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_02alu")
-level = ExtResource("2_6nsqn")
 
 [node name="MainMenu" parent="." instance=ExtResource("1_8j4fq")]
 size_flags_horizontal = 3

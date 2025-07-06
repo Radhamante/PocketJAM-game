@@ -8,6 +8,8 @@ extends CanvasLayer
 @onready var enter_name_menu: Control = $EnterNameMenu
 @onready var option_menu: Control = $OptionMenu
 
+@export var level: PackedScene
+
 const MAIN = preload("res://main.tscn")
 
 var menus
@@ -24,7 +26,6 @@ func _ready():
 		"OPTION": option_menu,
 	}
 	show_menu("ENTER_NAME")
-	_reload_game()
 	
 func _input(event):
 	if event.is_action_pressed("pause"):
@@ -33,7 +34,7 @@ func _input(event):
 func _reload_game():
 	if game:
 		game.queue_free()
-	var new_game = MAIN.instantiate()
+	var new_game = level.instantiate()
 	add_child(new_game)
 	game = new_game
 	game.game_ended.connect(_on_game_ended)
@@ -56,6 +57,7 @@ func _on_game_ended(gamer_saved: int, day_time: float) -> void:
 	end_game_menu.setup(player_name, gamer_saved, day_time)
 
 func _on_main_menu_start_pressed() -> void:
+	_reload_game()
 	get_tree().paused = false
 	hide_all_menu()
 
