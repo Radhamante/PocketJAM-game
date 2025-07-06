@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://8awxltky7lx3"]
+
+[ext_resource type="PackedScene" uid="uid://cv4o2b6876rv0" path="res://model/gate_door.fbx" id="1_unfel"]
+[ext_resource type="Material" uid="uid://dp4nqicorvemt" path="res://material/M_Opaque.tres" id="2_wme8e"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wme8e"]
+points = PackedVector3Array(0.000952041, 6.02566e-05, 0.00108177, 0.000273322, 6.02566e-05, 0.00108177, 0.000952041, -0.0316309, 0.00108177, 0.000952041, 6.02566e-05, -0.000969845, 0.000273322, 6.02566e-05, -0.000969845, 0.000273322, -0.0316309, 0.00108177, 0.000952041, -0.0316309, -0.000969845, 0.000273322, -0.0316309, -0.000969845)
+
+[node name="gate_door" instance=ExtResource("1_unfel")]
+
+[node name="gate_door" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_wme8e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="gate_door" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gate_door/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_wme8e")
