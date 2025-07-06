@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://diwa1he8gh8g4"]
+[gd_scene load_steps=6 format=3 uid="uid://diwa1he8gh8g4"]
 
 [ext_resource type="Theme" uid="uid://dprsiw7ycliib" path="res://theme/theme.tres" id="1_n0ddq"]
 [ext_resource type="Script" uid="uid://d1g032q67hu63" path="res://menu/enter_name_menu/enter_name_menu.gd" id="2_n2e7y"]
 [ext_resource type="PackedScene" uid="uid://c4q8hf8u8i74i" path="res://menu/background/background.tscn" id="2_w35wl"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_w35wl"]
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_n2e7y"]
+events = [SubResource("InputEventKey_w35wl")]
 
 [node name="EnterNameMenu" type="Control"]
 layout_mode = 3
@@ -33,6 +39,7 @@ offset_left = 388.0
 offset_top = 302.0
 offset_right = 764.0
 offset_bottom = 357.0
+shortcut = SubResource("Shortcut_n2e7y")
 text = "ENTER"
 
 [connection signal="pressed" from="enter" to="." method="_on_enter_pressed"]

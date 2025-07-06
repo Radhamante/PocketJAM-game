@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc4s0praamr8t"]
+[gd_scene load_steps=8 format=3 uid="uid://bc4s0praamr8t"]
 
 [ext_resource type="Script" uid="uid://cw0i4b2p0dhfk" path="res://menu/root_menu.gd" id="1_02alu"]
 [ext_resource type="PackedScene" uid="uid://1amiiq7xfogn" path="res://menu/main_menu/main_menu.tscn" id="1_8j4fq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://nv8neqdttrjf" path="res://menu/credits_menu/credits_menu.tscn" id="4_3oibf"]
 [ext_resource type="PackedScene" uid="uid://bvumac050alo7" path="res://menu/end_game_menu/end_game_menu.tscn" id="5_bgtps"]
 [ext_resource type="PackedScene" uid="uid://diwa1he8gh8g4" path="res://menu/enter_name_menu/enter_name_menu.tscn" id="6_1lnwh"]
+[ext_resource type="PackedScene" uid="uid://8rg3srkugcgu" path="res://menu/option_menu/option_menu.tscn" id="7_h8ra1"]
 
 [node name="RootMenu" type="CanvasLayer"]
 process_mode = 3
@@ -23,7 +24,11 @@ size_flags_vertical = 3
 
 [node name="EnterNameMenu" parent="." instance=ExtResource("6_1lnwh")]
 
+[node name="OptionMenu" parent="." instance=ExtResource("7_h8ra1")]
+
 [connection signal="credits_pressed" from="MainMenu" to="." method="_on_main_menu_credits_pressed"]
+[connection signal="option_pressed" from="MainMenu" to="." method="_on_main_menu_option_pressed"]
+[connection signal="quit_pressed" from="MainMenu" to="." method="_on_game_quit_pressed"]
 [connection signal="start_pressed" from="MainMenu" to="." method="_on_main_menu_start_pressed"]
 [connection signal="main_menu_pressed" from="PauseMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="resume_pressed" from="PauseMenu" to="." method="_on_pause_menu_resume_pressed"]
@@ -31,3 +36,4 @@ size_flags_vertical = 3
 [connection signal="main_menu_pressed" from="EndGameMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="quit_pressed" from="EndGameMenu" to="." method="_on_game_quit_pressed"]
 [connection signal="enter_pressed" from="EnterNameMenu" to="." method="_on_enter_name_menu_enter_pressed"]
+[connection signal="main_menu_pressed" from="OptionMenu" to="." method="_on_main_menu_pressed"]

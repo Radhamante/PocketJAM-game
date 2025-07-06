@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var credits_menu: Control = $CreditsMenu
 @onready var end_game_menu: Control = $EndGameMenu
 @onready var enter_name_menu: Control = $EnterNameMenu
+@onready var option_menu: Control = $OptionMenu
 
 const MAIN = preload("res://main.tscn")
 
@@ -20,6 +21,7 @@ func _ready():
 		"CREDITS": credits_menu,
 		"END_GAME": end_game_menu,
 		"ENTER_NAME": enter_name_menu,
+		"OPTION": option_menu,
 	}
 	show_menu("ENTER_NAME")
 	_reload_game()
@@ -76,3 +78,7 @@ func _on_game_quit_pressed() -> void:
 func _on_enter_name_menu_enter_pressed(_name: String) -> void:
 	player_name = _name
 	show_menu("MAIN")
+
+
+func _on_main_menu_option_pressed() -> void:
+	show_menu("OPTION")
