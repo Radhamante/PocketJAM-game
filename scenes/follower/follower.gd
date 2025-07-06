@@ -125,10 +125,7 @@ func _on_grab_area_body_entered(body: Node3D) -> void:
 
 func set_target_position(pos: Vector3):
 	target_position = pos
-	is_targeting_zone = true
-
-func clear_target_position():
-	is_targeting_zone = false
+	is_targeting_zone = true	
 	
 	
 func handle_animation(delta):
