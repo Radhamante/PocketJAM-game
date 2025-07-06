@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bngo1ac1v423l"]
-
-[ext_resource type="PackedScene" uid="uid://c443h8y6o1im4" path="res://model/SM_Sidewalk_01.fbx" id="1_1omu5"]
-[ext_resource type="Material" uid="uid://dp4nqicorvemt" path="res://material/M_Opaque.tres" id="2_qhogl"]
-
-[node name="SM_Sidewalk_01" instance=ExtResource("1_1omu5")]
-
-[node name="SM_Sidewalk_01" parent="." index="0"]
-surface_material_override/0 = ExtResource("2_qhogl")

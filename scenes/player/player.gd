@@ -15,11 +15,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var sound_footsteps = $SoundFootsteps
 @onready var model = $Character
 
-@export var grab_range := 5.0
-@onready var grab_area: Area3D = $"grab-area"
-
-func _ready() -> void:
-	grab_area.get_node("CollisionShape3D").shape.radius = grab_range
 
 # Functions
 func _physics_process(delta):
@@ -74,19 +69,18 @@ func handle_effects(delta):
 		animationPlayer.play("idle", 0.1)
 
 # Handle movement input
+
 func handle_controls(delta):
 
 	# Movement
+
 	var input := Vector3.ZERO
 
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_forward", "move_back")
 
+
 	if input.length() > 1:
 		input = input.normalized()
 
 	movement_velocity = input * movement_speed * delta
-
-func _on_grab_area_body_entered(body: Node3D) -> void:
-	if body is Follower:
-		body.player = self

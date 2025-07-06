@@ -24,6 +24,7 @@ func _ready():
 		"OPTION": option_menu,
 	}
 	show_menu("ENTER_NAME")
+	_reload_game()
 	
 func _input(event):
 	if event.is_action_pressed("pause"):
@@ -55,7 +56,6 @@ func _on_game_ended(gamer_saved: int, day_time: float) -> void:
 	end_game_menu.setup(player_name, gamer_saved, day_time)
 
 func _on_main_menu_start_pressed() -> void:
-	_reload_game()
 	get_tree().paused = false
 	hide_all_menu()
 

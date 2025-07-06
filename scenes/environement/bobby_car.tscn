@@ -38,5 +38,3 @@ shape = SubResource("SphereShape3D_qjyp5")
 
 [connection signal="body_entered" from="Area3D_safe_zone" to="Area3D_safe_zone" method="_on_body_entered"]
 [connection signal="body_exited" from="Area3D_safe_zone" to="Area3D_safe_zone" method="_on_body_exited"]
-
-[editable path="bobbY-car-publicity"]
