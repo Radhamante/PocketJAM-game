@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dasih7qf6f1kh"
-path="res://.godot/imported/SM_Wall_StoreBanne.fbx-09201fb57d9a4ce8c96593b72d9614cf.scn"
+uid="uid://darqbogrdwgp"
+path="res://.godot/imported/SM_Wall.fbx-6f985cb6485acdc7820dcb90302b5767.scn"
 
 [deps]
 
-source_file="res://model/Building/SM_Wall_StoreBanne.fbx"
-dest_files=["res://.godot/imported/SM_Wall_StoreBanne.fbx-09201fb57d9a4ce8c96593b72d9614cf.scn"]
+source_file="res://model/Building/Modulaire/SM_Wall.fbx"
+dest_files=["res://.godot/imported/SM_Wall.fbx-6f985cb6485acdc7820dcb90302b5767.scn"]
 
 [params]
 

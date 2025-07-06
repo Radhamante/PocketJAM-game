@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b01cjcuf50k7y"
-path.s3tc="res://.godot/imported/T_ATLAS_D.png-590d83f956ef7a2c0e0fd50ddf1d9b90.s3tc.ctex"
+uid="uid://bnpm24q4khwtm"
+path.s3tc="res://.godot/imported/man_B_T_ATLAS_D.png-911623438f572dde4955652e2e51ddd6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "37eddcbf2614fc04432d88efafb12184"
+}
 
 [deps]
 
-source_file="res://material/Texture/T_ATLAS_D.png"
-dest_files=["res://.godot/imported/T_ATLAS_D.png-590d83f956ef7a2c0e0fd50ddf1d9b90.s3tc.ctex"]
+source_file="res://model/followers/man_B_T_ATLAS_D.png"
+dest_files=["res://.godot/imported/man_B_T_ATLAS_D.png-911623438f572dde4955652e2e51ddd6.s3tc.ctex"]
 
 [params]
 
