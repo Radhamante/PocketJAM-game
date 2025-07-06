@@ -5,6 +5,9 @@
 
 [node name="man_A2" instance=ExtResource("1_1t4wv")]
 
+[node name="Armature" parent="." index="0"]
+transform = Transform3D(-0.01, -8.74228e-10, 3.82137e-17, 0, -4.37114e-10, -0.01, 8.74228e-10, -0.01, 4.37114e-10, 0, 0, 0)
+
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(0.154863, 0.977717, -116.638)
 bones/0/rotation = Quaternion(-0.712564, 0.0206869, -0.0381568, 0.700263)

@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://dp4nqicorvemt" path="res://material/M_Opaque.tres" id="2_o73bg"]
 
 [node name="man_B" instance=ExtResource("1_yyhin")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(0.571138, 0.938404, -88.0623)
