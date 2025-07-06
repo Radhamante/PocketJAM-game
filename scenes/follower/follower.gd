@@ -1,12 +1,13 @@
 extends CharacterBody3D
 class_name Follower
+@export var followers_models: Array[PackedScene]
 
 @export var speed := 8.0
 @export var response_speed := 10.0
 @export var neighbor_distance := 5.0
 @export var separation_distance := 3.0
 @export var min_player_distance := 2.0
-
+var	animationPlayer
 @export var weight_cohesion := 1.0
 @export var weight_separation := 1.0
 @export var weight_alignment := 1.0
@@ -28,11 +29,16 @@ var target_position: Vector3 = Vector3.ZERO
 var stay := false
 
 func _ready():
+	var rand_pick = followers_models[randf_range(0,3)]
+	var picked = rand_pick.instantiate()
+	add_child(picked)
+	animationPlayer = picked.get_node("AnimationPlayer")
 	swarm_root = get_parent_node_3d()
 	hold_distance = randf_range(2.0, 4.0)
 	grab_area.get_node("CollisionShape3D").shape.radius = grab_range
 
 func _physics_process(delta):
+	handle_animation(delta)
 	if not player or not swarm_root or not nav_region:
 		return
 
@@ -47,7 +53,8 @@ func _physics_process(delta):
 		var nav_map = nav_region.get_navigation_map()
 		var path = NavigationServer3D.map_get_path(nav_map, global_position, target_position, false)
 		var target_point = path[1] if path.size() > 1 else target_position
-		direction = (target_point - global_position).normalized()
+		if global_position.distance_to(target_point) > 0.5:
+			direction = (target_point - global_position).normalized()
 		look_at(target_position)
 		get_tree().create_timer(0.5).timeout
 	elif is_targeting_zone and stay :
@@ -105,7 +112,6 @@ func _physics_process(delta):
 	rotation.x = 0
 	rotation.z = 0
 
-
 func kill():
 	kill_particles.emitting = true
 	mesh.queue_free()
@@ -123,3 +129,16 @@ func set_target_position(pos: Vector3):
 
 func clear_target_position():
 	is_targeting_zone = false
+	
+	
+func handle_animation(delta):
+	var horizontal_velocity = Vector2(velocity.x, velocity.z).length()
+	
+	if horizontal_velocity > 3.5:
+		if animationPlayer.current_animation != "run":
+			animationPlayer.play("run", 0.1)
+	elif horizontal_velocity > 0.1:
+		if animationPlayer.current_animation != "walk":
+			animationPlayer.play("walk", 0.1)
+	elif animationPlayer.current_animation != "idle":
+		animationPlayer.play("idle", 0.1)

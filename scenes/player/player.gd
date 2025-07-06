@@ -7,7 +7,6 @@ class_name Player
 @export var max_fall_speed := -15.0
 @export var animationPlayer: AnimationPlayer
 
-
 var movement_velocity: Vector3
 var rotation_direction: float
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

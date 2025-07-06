@@ -1,14 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://cju1yf86s21nc"]
+[gd_scene load_steps=15 format=3 uid="uid://cju1yf86s21nc"]
 
 [ext_resource type="Script" uid="uid://dr0ue0p8gxrka" path="res://scenes/follower/follower.gd" id="1_5f0wo"]
+[ext_resource type="PackedScene" uid="uid://bb11rg3uxwu4g" path="res://scenes/follower/man_A.tscn" id="2_yiu0e"]
+[ext_resource type="PackedScene" uid="uid://b5715y2m76y43" path="res://scenes/follower/man_B.tscn" id="3_tapvs"]
+[ext_resource type="PackedScene" uid="uid://eibj4ya01ibo" path="res://scenes/follower/woman_A.tscn" id="4_xeeeb"]
+[ext_resource type="PackedScene" uid="uid://bb84a7m15yno" path="res://scenes/follower/woman_B.tscn" id="5_s6aai"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0527f"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0527f"]
-albedo_color = Color(0.994253, 0.99355, 0.861047, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_5f0wo"]
-material = SubResource("StandardMaterial3D_0527f")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5f0wo"]
 radius = 10.0
@@ -38,15 +36,12 @@ material = SubResource("StandardMaterial3D_a84gk")
 
 [node name="Follower" type="CharacterBody3D"]
 script = ExtResource("1_5f0wo")
+followers_models = Array[PackedScene]([ExtResource("2_yiu0e"), ExtResource("3_tapvs"), ExtResource("4_xeeeb"), ExtResource("5_s6aai")])
 neighbor_distance = 8.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02863, 0)
 shape = SubResource("CapsuleShape3D_0527f")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06714, 0)
-mesh = SubResource("CapsuleMesh_5f0wo")
 
 [node name="grab-area" type="Area3D" parent="."]
 
@@ -74,14 +69,17 @@ scale_amount_curve = SubResource("Curve_5f0wo")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.755707, 0, 0, 0, -2.69351e-08, 0.253931, 0, -0.616203, -1.10997e-08, 0, 1.40665, -0.285651)
+visible = false
 mesh = SubResource("CapsuleMesh_a84gk")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.280171, 0, 0, 0, 0.280171, 0, 0, 0, 0.280171, 0.217477, 1.78952, -0.250167)
+visible = false
 mesh = SubResource("SphereMesh_ovswd")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.280171, 0, 0, 0, 0.280171, 0, 0, 0, 0.280171, -0.227009, 1.78952, -0.239228)
+visible = false
 mesh = SubResource("SphereMesh_ovswd")
 
 [connection signal="body_entered" from="grab-area" to="." method="_on_grab_area_body_entered"]
