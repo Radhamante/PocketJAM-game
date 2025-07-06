@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	day_time += delta
-	sun.rotation_degrees.x = remap(day_time, 0, day_duration, 0, -270)
+	sun.rotation_degrees.x = remap(day_time, 0, day_duration, 30, -270)
 	
 	var sun_color_saturation = 0
 	var third_of_day = day_duration / 3

@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://8rg3srkugcgu"]
+
+[ext_resource type="Theme" uid="uid://dprsiw7ycliib" path="res://theme/theme.tres" id="1_0xbhh"]
+[ext_resource type="PackedScene" uid="uid://c4q8hf8u8i74i" path="res://menu/background/background.tscn" id="1_3nh61"]
+[ext_resource type="Script" uid="uid://44aasq1besng" path="res://menu/option_menu/option_menu.gd" id="2_siayx"]
+
+[node name="OptionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_0xbhh")
+script = ExtResource("2_siayx")
+
+[node name="Background" parent="." instance=ExtResource("1_3nh61")]
+layout_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 634.0
+offset_right = -634.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "Master volume"
+horizontal_alignment = 1
+
+[node name="master_volume_slider" type="HSlider" parent="VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music volume"
+horizontal_alignment = 1
+
+[node name="music_volume_slider" type="HSlider" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SFX" type="Label" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "SFX volume"
+horizontal_alignment = 1
+
+[node name="sfx_volume_slider" type="HSlider" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+page = 0.001
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="UI" type="Label" parent="VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "UI volume"
+horizontal_alignment = 1
+
+[node name="ui_volume_slider" type="HSlider" parent="VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="main_menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "MAIN MENU"
+
+[connection signal="pressed" from="VBoxContainer/main_menu" to="." method="_on_main_menu_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://djomhkd3ysrfq"]
+[gd_scene load_steps=5 format=3 uid="uid://djomhkd3ysrfq"]
 
 [ext_resource type="Script" uid="uid://07yvdyr1qcof" path="res://scenes/player/player.gd" id="1_8afob"]
-[ext_resource type="PackedScene" uid="uid://bxchjtftesb5s" path="res://scenes/player/boby.tscn" id="2_dovo2"]
+[ext_resource type="PackedScene" uid="uid://dh0a0e0tgbc76" path="res://scenes/player/boby_corp.tscn" id="2_dovo2"]
+[ext_resource type="PackedScene" uid="uid://5b2ikmmn1v8q" path="res://scenes/player/boby_head.tscn" id="3_gmlin"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 radius = 0.36
@@ -10,10 +11,23 @@ radius = 0.36
 script = ExtResource("1_8afob")
 animationPlayer = NodePath("boby/AnimationPlayer")
 
+[node name="boby" parent="." instance=ExtResource("2_dovo2")]
+
+[node name="BoneAttachment3D" parent="boby/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, -1.49012e-08, 1, 0, -1, -1.49012e-08, 0, 0.445039, -149.548)
+
+[node name="boby_head" parent="boby/Armature/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("3_gmlin")]
+transform = Transform3D(99.3947, -3.08764, -10.5437, 2.3263, 99.7083, -7.26887, 10.7374, 6.9796, 99.1766, 1.28158, -2.27245, -0.0967272)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="boby/Armature/Skeleton3D/BoneAttachment3D" index="1"]
+transform = Transform3D(-99.3977, 1.28058, 10.8843, 0.458042, 99.7136, -7.5488, -10.9498, -7.45348, -99.1189, 1.28158, 4.61101, 25.183)
+light_color = Color(0.031263, 0.662471, 1, 1)
+light_energy = 1.667
+shadow_enabled = true
+spot_range = 26.697
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_x7p2l")
-
-[node name="boby" parent="." instance=ExtResource("2_dovo2")]
 
 [editable path="boby"]

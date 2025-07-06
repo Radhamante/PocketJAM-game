@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh0a0e0tgbc76"]
+
+[ext_resource type="PackedScene" uid="uid://bs8pjumqwed8x" path="res://model/Player/boby.glb" id="1_0kgx2"]
+
+[node name="boby" instance=ExtResource("1_0kgx2")]
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="0"]
+bone_name = "mixamorig_Head"
+bone_idx = 5
