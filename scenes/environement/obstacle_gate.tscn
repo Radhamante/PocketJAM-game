@@ -1,8 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://cunjlmj3m7o2u"]
 
+
 [ext_resource type="PackedScene" uid="uid://bao6ivbkhpwop" path="res://model/gate_entrance.fbx" id="1_v1uq4"]
-[ext_resource type="PackedScene" uid="uid://cv4o2b6876rv0" path="res://model/gate_door.fbx" id="2_c8vnk"]
+[ext_resource type="Material" uid="uid://dp4nqicorvemt" path="res://material/M_Opaque.tres" id="2_c8vnk"]
 [ext_resource type="PackedScene" uid="uid://cd4bdvlmq3q6b" path="res://scenes/danger_zone/danger_zone.tscn" id="3_0ldlt"]
+[ext_resource type="PackedScene" uid="uid://8awxltky7lx3" path="res://scenes/environement/gate_door.tscn" id="3_1dds6"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1dds6"]
 points = PackedVector3Array(0.000200545, -0.0288168, 0.0100511, -0.00121802, -0.0314182, -0.000118248, -0.00121802, -0.0288168, -0.000118248, 0.00114648, -0.0314182, -0.000118248, -0.00121802, -0.0314182, 0.0100511, 0.00114648, -0.0288168, -0.000118248, 0.00114648, -0.0314182, 0.00886852, -0.00121802, -0.0288168, 0.0100511, 0.00114648, -0.0288168, 0.00886852, 0.000200545, -0.0314182, 0.0100511)
@@ -15,85 +17,27 @@ size = Vector3(0.212646, 0.230225, 3.09961)
 
 [sub_resource type="Animation" id="Animation_c8vnk"]
 length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("gate_door:rotation:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("gate_door:rotation:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("gate_door:rotation:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
+
+[sub_resource type="Animation" id="Animation_y2och"]
+resource_name = "barriere"
+length = 3.0
 
 [sub_resource type="Animation" id="Animation_v1uq4"]
 resource_name = "gate"
 length = 4.0
 loop_mode = 1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("gate_door:rotation:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -1.48868, -0.25, 0, 0.25, 0, -1.48868, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.0333333, 0.533333, 2.76, 3.6)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("gate_door:rotation:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.0333333, 0.533333, 2.76, 3.6)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("gate_door:rotation:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.0333333, 0.533333, 2.76, 3.6)
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0ldlt"]
 _data = {
 &"RESET": SubResource("Animation_c8vnk"),
+&"barriere": SubResource("Animation_y2och"),
 &"gate": SubResource("Animation_v1uq4")
 }
 
 [node name="gate_entrance" instance=ExtResource("1_v1uq4")]
+
+[node name="gate_entrance" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_c8vnk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="gate_entrance" index="0"]
 
@@ -103,14 +47,14 @@ shape = SubResource("ConvexPolygonShape3D_1dds6")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="gate_entrance/StaticBody3D" index="1"]
 shape = SubResource("ConvexPolygonShape3D_y2och")
 
-[node name="gate_door" parent="." index="1" instance=ExtResource("2_c8vnk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0138664, 0.989949, -0.0436614)
+[node name="gate_door2" parent="gate_entrance" index="1" instance=ExtResource("3_1dds6")]
+transform = Transform3D(0.01, 0, 0, 0, -2.38419e-09, -0.01, 0, 0.01, -2.38419e-09, 0, -2.38059e-09, 0.0099849)
 
-[node name="DangerZone" parent="gate_door" index="1" instance=ExtResource("3_0ldlt")]
-transform = Transform3D(-0.0254826, 0, -1.50793, 0, 5.51389, 0, 2.93764, 0, -0.0130806, 0.798233, -0.118434, 1.5139)
+[node name="DangerZone" parent="gate_entrance/gate_door2" index="1" instance=ExtResource("3_0ldlt")]
+transform = Transform3D(-0.0254826, 0, -1.50793, 8.34927e-14, 5.51389, -3.71773e-16, 2.93764, -1.56714e-13, -0.0130806, 0.812099, -0.100769, 1.47024)
 
-[node name="DangerZone2" parent="gate_door" index="2" instance=ExtResource("3_0ldlt")]
-transform = Transform3D(-1.2896e-07, 0, 1.414, 0, 5.51389, 0, -2.95025, 0, -6.18077e-08, -0.644679, -0.118434, 1.5139)
+[node name="DangerZone2" parent="gate_entrance/gate_door2" index="2" instance=ExtResource("3_0ldlt")]
+transform = Transform3D(-1.2896e-07, 0, 1.414, -8.38511e-14, 5.51389, -1.75668e-21, -2.95025, -1.56714e-13, -6.18077e-08, -0.630813, -0.100769, 1.47024)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="gate_door" index="3"]
 
@@ -119,6 +63,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012085, -0.00158691, 1.577
 shape = SubResource("BoxShape3D_v1uq4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+
 libraries = {
 &"": SubResource("AnimationLibrary_0ldlt")
 }
