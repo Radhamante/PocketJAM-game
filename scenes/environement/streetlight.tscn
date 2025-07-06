@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://jve4xhtpsl4f"]
+[gd_scene load_steps=3 format=3 uid="uid://jve4xhtpsl4f"]
 
 [ext_resource type="PackedScene" uid="uid://dorb3rqy4s83t" path="res://model/streetlight.fbx" id="1_7h2qo"]
-[ext_resource type="Material" uid="uid://dp4nqicorvemt" path="res://material/M_Opaque.tres" id="2_fsngr"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7h2qo"]
 height = 0.02
@@ -9,11 +8,11 @@ radius = 0.001
 
 [node name="streetlight" instance=ExtResource("1_7h2qo")]
 
-[node name="Cube_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(201.11, 0, 0, 0, -2.39742e-05, 201.11, 0, -201.11, -2.39742e-05, 0, -1.5, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
 transform = Transform3D(-7.79388e-05, 0.00221537, -0.999997, 0.999994, 0.00347337, -7.02437e-05, 0.0034732, -0.999991, -0.00221563, -2.06588e-05, 0.000369003, 0.00998468)
 shape = SubResource("CylinderShape3D_7h2qo")
-
-[node name="Cube#StaticBody3D" type="StaticBody3D" parent="." index="1"]
-
-[node name="SM_StreetLight" parent="." index="2"]
-surface_material_override/0 = ExtResource("2_fsngr")

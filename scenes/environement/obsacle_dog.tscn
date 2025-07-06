@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba0eqpnlvlpje"]
+[gd_scene load_steps=7 format=3 uid="uid://ba0eqpnlvlpje"]
 
 [ext_resource type="PackedScene" uid="uid://novbm4dsshq4" path="res://model/dog.fbx" id="1_bjht6"]
 [ext_resource type="PackedScene" uid="uid://cd4bdvlmq3q6b" path="res://scenes/danger_zone/danger_zone.tscn" id="2_d1ky0"]
+[ext_resource type="Material" uid="uid://dp4nqicorvemt" path="res://material/M_Opaque.tres" id="2_d6bbl"]
 
 [sub_resource type="Animation" id="Animation_d6bbl"]
 length = 0.001
@@ -45,6 +46,7 @@ _data = {
 
 [node name="Dog" parent="." index="0"]
 transform = Transform3D(100, 0, 0, 0, -0.000361999, 100, 0, -100, -0.000361999, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_d6bbl")
 
 [node name="DangerZone" parent="Dog" index="0" instance=ExtResource("2_d1ky0")]
 transform = Transform3D(-8.14907e-10, 1.33227e-15, -0.0173949, -0.0114588, -1.19211e-09, 9.31323e-10, -1.36601e-09, 0.01, -8.88178e-16, 0.00584784, 0.0201278, 0.000541103)

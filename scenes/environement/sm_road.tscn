@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgo6064ub73ru"]
+[gd_scene load_steps=3 format=3 uid="uid://dgo6064ub73ru"]
 
 [ext_resource type="PackedScene" uid="uid://dyl8tivhb8tjs" path="res://model/SM_Road.fbx" id="1_oqtvy"]
-[ext_resource type="Material" uid="uid://dp4nqicorvemt" path="res://material/M_Opaque.tres" id="2_ypk43"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ypk43"]
 points = PackedVector3Array(0.005, 0.005, 0, 0.005, -0.005, 0, -0.005, 0.005, 0, -0.005, -0.005, 0)
@@ -10,6 +9,7 @@ points = PackedVector3Array(0.005, 0.005, 0, 0.005, -0.005, 0, -0.005, 0.005, 0,
 
 [node name="SM_Road" parent="." index="0"]
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 1.5, 0)
+
 surface_material_override/0 = ExtResource("2_ypk43")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SM_Road" index="0"]

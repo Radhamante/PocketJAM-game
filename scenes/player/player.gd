@@ -70,19 +70,18 @@ func handle_effects(delta):
 		animationPlayer.play("idle", 0.1)
 
 # Handle movement input
+
 func handle_controls(delta):
 
 	# Movement
+
 	var input := Vector3.ZERO
 
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_forward", "move_back")
 
+
 	if input.length() > 1:
 		input = input.normalized()
 
 	movement_velocity = input * movement_speed * delta
-
-func _on_grab_area_body_entered(body: Node3D) -> void:
-	if body is Follower:
-		body.player = self

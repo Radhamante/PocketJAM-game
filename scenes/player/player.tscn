@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://djomhkd3ysrfq"]
+[gd_scene load_steps=5 format=3 uid="uid://djomhkd3ysrfq"]
 
 [ext_resource type="Script" uid="uid://07yvdyr1qcof" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="PackedScene" uid="uid://dh0a0e0tgbc76" path="res://scenes/player/boby_corp.tscn" id="2_dovo2"]
@@ -6,9 +6,6 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 radius = 0.36
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_gmlin"]
-radius = 10.0
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("animationPlayer")]
 script = ExtResource("1_8afob")
@@ -32,12 +29,5 @@ spot_range = 26.697
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_x7p2l")
-
-[node name="grab-area" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="grab-area"]
-shape = SubResource("SphereShape3D_gmlin")
-
-[connection signal="body_entered" from="grab-area" to="." method="_on_grab_area_body_entered"]
 
 [editable path="boby"]
