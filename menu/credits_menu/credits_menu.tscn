@@ -37,26 +37,47 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="samsaga" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "SAMSAGA : arts, food"
+text = "SAMSAGA : Shading, Modelisation 3D, Montage, Food"
 horizontal_alignment = 1
 
 [node name="jouli" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "JOULI : arts, game design"
+text = "JOULI : Modelisation 3D, Game design, Level design, Sounds"
 horizontal_alignment = 1
 
 [node name="hugo" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "HUGO : arts"
+text = "HUGO : Modelistion 3D, Intro arts, Dev"
 horizontal_alignment = 1
 
 [node name="hugo2" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "RADHAMANTE : dev"
+text = "RADHAMANTE : Dev, Menus"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 28
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "EXTERNAL :"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "MIXAMO : Riging, Anims"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Kenney UI kit : Menus"
 horizontal_alignment = 1
 
 [node name="main_menu" type="Button" parent="MarginContainer/VBoxContainer"]
