@@ -12,7 +12,7 @@ class_name Follower
 @export var weight_alignment := 1.0
 @export var weight_target := 2.0
 
-
+@onready var savage_effect: Node3D = $SavageEffect
 @onready var kill_particles: CPUParticles3D = $kill_particules
 
 var nav_region : NavigationRegion3D
@@ -39,6 +39,8 @@ func _physics_process(delta):
 	handle_animation(delta)
 	if not player or not swarm_root or not nav_region:
 		return
+	if savage_effect:
+		savage_effect.queue_free()
 		
 	var target_position = car_position if car_position else player.global_position
 

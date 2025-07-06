@@ -12,12 +12,13 @@ particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_dp6nv"]
 material = SubResource("StandardMaterial3D_xowt2")
-size = Vector2(0.1, 0.1)
+size = Vector2(0.3, 0.3)
 
 [node name="SavageEffect" type="Node3D"]
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 amount = 1
+lifetime = 2.0
 randomness = 0.5
 lifetime_randomness = 0.55
 mesh = SubResource("QuadMesh_dp6nv")
