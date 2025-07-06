@@ -85,4 +85,5 @@ func handle_controls(delta):
 
 func _on_grab_area_body_entered(body: Node3D) -> void:
 	if body is Follower:
+		print("SALUT")
 		body.player = self
