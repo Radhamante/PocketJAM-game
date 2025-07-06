@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bb3yr4vgjmhda"
-path="res://.godot/imported/SM_Wall_Corner.fbx-67bf21365ef1e6bb3bc801d542b91180.scn"
+uid="uid://b5nb1lnemdf48"
+path="res://.godot/imported/SM_Wall_Window_1.fbx-4de516db6650887cd1e56214fd1e98cc.scn"
 
 [deps]
 
-source_file="res://model/Building/SM_Wall_Corner.fbx"
-dest_files=["res://.godot/imported/SM_Wall_Corner.fbx-67bf21365ef1e6bb3bc801d542b91180.scn"]
+source_file="res://model/Building/Modulaire/SM_Wall_Window_1.fbx"
+dest_files=["res://.godot/imported/SM_Wall_Window_1.fbx-4de516db6650887cd1e56214fd1e98cc.scn"]
 
 [params]
 

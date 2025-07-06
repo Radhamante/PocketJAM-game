@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c4bpmp7es4uvs"]
 
-[ext_resource type="PackedScene" uid="uid://darqbogrdwgp" path="res://model/Building/SM_Wall.fbx" id="1_biup0"]
+[ext_resource type="PackedScene" uid="uid://darqbogrdwgp" path="res://model/Building/Modulaire/SM_Wall.fbx" id="1_biup0"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_12hqf"]
 points = PackedVector3Array(-4.25614e-07, -0.005, 0, -4.25614e-07, 0.00499902, 0, 0.000992135, -0.005, 0.0284554, -0.00900787, -0.005, 0.0571926, 0.000991156, 0.00499902, 0.0284554, -0.00900787, 0.00499902, 0.0571926, 0.000992135, -0.005, 0.06, -0.00408617, -0.005, 0.06, 0.000991156, 0.00499902, 0.06, -0.00408617, 0.00499902, 0.06)
