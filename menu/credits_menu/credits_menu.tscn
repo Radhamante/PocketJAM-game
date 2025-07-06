@@ -42,22 +42,22 @@ alignment = 1
 
 [node name="samsaga" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "SAMSAGA : Shading, Modelisation 3D, Montage, Food"
+text = "SAMSAGA : Shading, 3D Modeling, Video editing, Food, Host"
 horizontal_alignment = 1
 
 [node name="jouli" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "JOULI : Modelisation 3D, Game design, Level design, Sounds"
+text = "JOULI : 3D Modeling, Game design, Level design, Sounds"
 horizontal_alignment = 1
 
 [node name="hugo" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "HUGO : Modelistion 3D, Intro arts, Dev"
+text = "HUGO : 3D Modeling, Intro arts, Dev"
 horizontal_alignment = 1
 
 [node name="hugo2" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "RADHAMANTE : Dev, Menus"
+text = "RADHAMANTE : Dev, Leaderboard API, Menus"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
@@ -72,7 +72,7 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "MIXAMO : Riging, Anims"
+text = "Mixamo : Riging, Anims"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]

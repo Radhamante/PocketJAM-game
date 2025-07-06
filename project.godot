@@ -13,7 +13,13 @@ config_version=5
 config/name="PocketJAM"
 run/main_scene="uid://bc4s0praamr8t"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/use_filter=false
+boot_splash/image="uid://4m76mh1gh7vn"
 config/icon="res://icon.svg"
+
+[autoload]
+
+ButtonClickSound="*res://menu/button_click_sound.tscn"
 
 [input]
 

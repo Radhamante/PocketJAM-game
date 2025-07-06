@@ -5,7 +5,9 @@ signal game_ended(day_time: float, gamer_saved: int)
 @export var sun: DirectionalLight3D
 @export var day_duration = 10.0
 
-@onready var valid_zone: Node3D = $ValidZone
+
+@onready var valid_zone: Node3D = $world/BobbYCar/ValidZone
+
 @onready var progress_bar: ProgressBar = $CanvasLayer/MarginContainer/ProgressBar
 
 
