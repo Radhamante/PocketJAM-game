@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://x6vuwbht4vsg"]
+[gd_scene load_steps=13 format=3 uid="uid://x6vuwbht4vsg"]
 
 [ext_resource type="PackedScene" uid="uid://chfs5031vwomr" path="res://scenes/environement/building_exemple.tscn" id="1_pihvh"]
 [ext_resource type="PackedScene" uid="uid://dgo6064ub73ru" path="res://scenes/environement/sm_road.tscn" id="3_kq0pr"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://deg38nxdqc3x1" path="res://scenes/environement/sm_sidewalk.tscn" id="4_kq0pr"]
 [ext_resource type="PackedScene" uid="uid://jve4xhtpsl4f" path="res://scenes/environement/streetlight.tscn" id="5_wwe5c"]
 [ext_resource type="PackedScene" uid="uid://cfqnexn7lrc1b" path="res://scenes/environement/trash.tscn" id="6_nrkx4"]
+[ext_resource type="PackedScene" uid="uid://c0tibe78dxmes" path="res://scenes/environement/Buildings/sm_building_a_01.tscn" id="7_aqd3s"]
+[ext_resource type="PackedScene" uid="uid://bnw1s3l5fdniv" path="res://scenes/environement/Buildings/sm_building_a_02.tscn" id="8_7hnys"]
+[ext_resource type="PackedScene" uid="uid://db0wrwwfjrtuh" path="res://scenes/environement/Buildings/sm_building_b_01.tscn" id="9_ifq6c"]
+[ext_resource type="PackedScene" uid="uid://02v6xd2xyn6m" path="res://scenes/environement/Buildings/sm_building_b_02.tscn" id="10_fyol3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pihvh"]
 
@@ -37,3 +41,11 @@ shape = SubResource("ConcavePolygonShape3D_pihvh")
 [node name="streetlight" parent="." instance=ExtResource("5_wwe5c")]
 
 [node name="trash" parent="." instance=ExtResource("6_nrkx4")]
+
+[node name="SM_Building_A_01" parent="." instance=ExtResource("7_aqd3s")]
+
+[node name="SM_Building_A_02" parent="." instance=ExtResource("8_7hnys")]
+
+[node name="SM_Building_B_01" parent="." instance=ExtResource("9_ifq6c")]
+
+[node name="SM_Building_B_02" parent="." instance=ExtResource("10_fyol3")]
