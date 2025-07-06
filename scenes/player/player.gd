@@ -3,9 +3,9 @@ extends CharacterBody3D
 class_name Player
 
 @export_subgroup("Properties")
-@export var movement_speed = 200
-@export var jump_strength = 5
+@export var movement_speed = 300
 @export var max_fall_speed := -15.0
+@export var animationPlayer: AnimationPlayer
 
 
 var movement_velocity: Vector3
@@ -15,7 +15,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var particles_trail = $ParticlesTrail
 @onready var sound_footsteps = $SoundFootsteps
 @onready var model = $Character
-@onready var animation = $Character/AnimationPlayer
 
 
 # Functions
@@ -57,27 +56,18 @@ func _physics_process(delta):
 # Handle animation(s)
 func handle_effects(delta):
 
-	#particles_trail.emitting = false
 	#sound_footsteps.stream_paused = true
 
-	if is_on_floor():
-		var horizontal_velocity = Vector2(velocity.x, velocity.z)
-		var speed_factor = horizontal_velocity.length() / movement_speed / delta
-		#if speed_factor > 0.05:
-			#if animation.current_animation != "walk":
-				#animation.play("walk", 0.1)
-#
-			#if speed_factor > 0.3:
-				#sound_footsteps.stream_paused = false
-				#sound_footsteps.pitch_scale = speed_factor
-#
-			#if speed_factor > 0.75:
-				#particles_trail.emitting = true
-#
-		#elif animation.current_animation != "idle":
-			#animation.play("idle", 0.1)
-	#elif animation.current_animation != "jump":
-		#animation.play("jump", 0.1)
+	var horizontal_velocity = Vector2(velocity.x, velocity.z).length()
+	
+	if horizontal_velocity > 3.5:
+		if animationPlayer.current_animation != "run":
+			animationPlayer.play("run", 0.1)
+	elif horizontal_velocity > 0.1:
+		if animationPlayer.current_animation != "walk":
+			animationPlayer.play("walk", 0.1)
+	elif animationPlayer.current_animation != "idle":
+		animationPlayer.play("idle", 0.1)
 
 # Handle movement input
 

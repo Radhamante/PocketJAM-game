@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://brdgerilq5fnu"
+path="res://.godot/imported/Crowd panic sound effect.mp3-6a437fa1ef7a86d28dbdf418a119b27a.mp3str"
+
+[deps]
+
+source_file="res://sound/music/Crowd panic sound effect.mp3"
+dest_files=["res://.godot/imported/Crowd panic sound effect.mp3-6a437fa1ef7a86d28dbdf418a119b27a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

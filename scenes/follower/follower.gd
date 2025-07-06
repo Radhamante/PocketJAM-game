@@ -3,7 +3,7 @@ class_name Follower
 
 @export var speed := 8.0
 @export var response_speed := 10.0
-@export var neighbor_distance := 10.0
+@export var neighbor_distance := 5.0
 @export var separation_distance := 3.0
 @export var min_player_distance := 2.0
 
@@ -29,7 +29,7 @@ var stay := false
 
 func _ready():
 	swarm_root = get_parent_node_3d()
-	hold_distance = randf_range(2.0, 7.0)
+	hold_distance = randf_range(2.0, 4.0)
 	grab_area.get_node("CollisionShape3D").shape.radius = grab_range
 
 func _physics_process(delta):

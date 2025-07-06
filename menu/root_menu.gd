@@ -29,7 +29,6 @@ func _input(event):
 		_pause_pressed()
 
 func _reload_game():
-	print(game)
 	if game:
 		game.queue_free()
 	var new_game = MAIN.instantiate()
@@ -52,7 +51,7 @@ func _pause_pressed() -> void:
 func _on_game_ended(gamer_saved: int, day_time: float) -> void:
 	show_menu("END_GAME")
 	game.queue_free()
-	end_game_menu.setup(name, gamer_saved, day_time)
+	end_game_menu.setup(player_name, gamer_saved, day_time)
 
 func _on_main_menu_start_pressed() -> void:
 	get_tree().paused = false
@@ -74,6 +73,6 @@ func _on_game_quit_pressed() -> void:
 	get_tree().quit()
 
 
-func _on_enter_name_menu_enter_pressed(name: String) -> void:
-	player_name = name
+func _on_enter_name_menu_enter_pressed(_name: String) -> void:
+	player_name = _name
 	show_menu("MAIN")

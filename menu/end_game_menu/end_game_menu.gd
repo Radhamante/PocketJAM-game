@@ -17,9 +17,9 @@ func setup(_name: String, _gamer_saved: int, _day_time: float):
 	day_time_element.text = str(_day_time)
 	
 	send_score(_name, _gamer_saved, _day_time)
-	query_leaderboard()
 
 func send_score(_name: String, _gamer_saved: int, _day_time: float):
+	send_score_request.request_completed.connect(_on_send_score_request_completed)
 	var url = "https://pocketjam.radhamante.fr/leaderboards/24b254de-936f-4e0e-94be-bcebed90a2bb/scores"
 	var headers = ["Content-Type: application/json"]
 	var json_body = {
@@ -37,6 +37,10 @@ func send_score(_name: String, _gamer_saved: int, _day_time: float):
 		print("Requête POST envoyée avec succès")
 	else:
 		print("Erreur HTTP : ", error)
+		
+func _on_send_score_request_completed(result, response_code, headers, body) -> void:
+	query_leaderboard()
+
 
 func query_leaderboard():
 	query_leaderboard_request.request_completed.connect(_on_leaderboard_request_completed)
