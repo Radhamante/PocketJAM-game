@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://0ocdvew0mnh8"]
+[gd_scene load_steps=6 format=3 uid="uid://0ocdvew0mnh8"]
 
+[ext_resource type="Script" uid="uid://bhc8o7bs8ust5" path="res://scenes/valid_zone/valid_zone.gd" id="1_3mqdf"]
 [ext_resource type="Texture2D" uid="uid://2fs0kmhw04vw" path="res://sprites/area_texture.png" id="1_fgk2o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mqdf"]
@@ -11,7 +12,11 @@ material = SubResource("StandardMaterial3D_3mqdf")
 radius = 0.015
 height = 1.0
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_fgk2o"]
+radius = 5.99126
+
 [node name="ValidZone" type="Node3D"]
+script = ExtResource("1_3mqdf")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -36,3 +41,8 @@ hue_variation_max = 0.99
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, -2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, 0)
 texture = ExtResource("1_fgk2o")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_fgk2o")

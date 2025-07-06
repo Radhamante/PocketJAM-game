@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cunjlmj3m7o2u"]
+[gd_scene load_steps=11 format=3 uid="uid://cunjlmj3m7o2u"]
 
 [ext_resource type="PackedScene" uid="uid://bao6ivbkhpwop" path="res://model/gate_entrance.fbx" id="1_v1uq4"]
+[ext_resource type="Material" uid="uid://dp4nqicorvemt" path="res://material/M_Opaque.tres" id="2_0ldlt"]
 [ext_resource type="PackedScene" uid="uid://cv4o2b6876rv0" path="res://model/gate_door.fbx" id="2_c8vnk"]
 [ext_resource type="PackedScene" uid="uid://cd4bdvlmq3q6b" path="res://scenes/danger_zone/danger_zone.tscn" id="3_0ldlt"]
 
@@ -94,6 +95,9 @@ _data = {
 }
 
 [node name="gate_entrance" instance=ExtResource("1_v1uq4")]
+
+[node name="gate_entrance" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_0ldlt")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="gate_entrance" index="0"]
 
