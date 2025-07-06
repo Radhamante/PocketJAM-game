@@ -13,10 +13,8 @@ var	animationPlayer
 @export var weight_alignment := 1.0
 @export var weight_target := 2.0
 
-@export var grab_range := 5.0
-@onready var grab_area: Area3D = $"grab-area"
 @onready var kill_particles: CPUParticles3D = $kill_particules
-@onready var mesh: MeshInstance3D = $MeshInstance3D
+
 var nav_region : NavigationRegion3D
 @onready var savage_effect: Node3D = $SavageEffect
 
@@ -35,7 +33,6 @@ func _ready():
 	animationPlayer = picked.get_node("AnimationPlayer")
 	swarm_root = get_parent_node_3d()
 	hold_distance = randf_range(2.0, 4.0)
-	grab_area.get_node("CollisionShape3D").shape.radius = grab_range
 
 func _physics_process(delta):
 	handle_animation(delta)
@@ -114,14 +111,8 @@ func _physics_process(delta):
 
 func kill():
 	kill_particles.emitting = true
-	mesh.queue_free()
 	kill_particles.connect("finished", queue_free)
 
-
-func _on_grab_area_body_entered(body: Node3D) -> void:
-	if body is Player: # Ou vérifie une classe spécifique
-		player = body
-		grab_area.queue_free()
 
 func set_target_position(pos: Vector3):
 	car_position = pos
